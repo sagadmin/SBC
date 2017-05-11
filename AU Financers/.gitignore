@@ -1,0 +1,12 @@
+# Maven resources
+/target/
+
+# Eclipse resources
+/.classpath
+/.project
+/.settings/
+/.groovy/
+
+# project resources
+*.log
+/selenium/
