@@ -5,8 +5,8 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
-          <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
+          <include name="childRLOSProcess"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>

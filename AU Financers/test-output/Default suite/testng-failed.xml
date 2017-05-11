@@ -5,8 +5,10 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
+          <include name="takeactionByBM"/>
           <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
+          <include name="loginwithbranch"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>

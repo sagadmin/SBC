@@ -1,7 +1,11 @@
 package aufin.appmethods.com;
 
 import java.util.List;
+
+import javax.swing.text.Document;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -185,7 +189,7 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.icon_passportIssueDate.click();
 		changeMonths(month);
 		changeYear(year);
-		//driver.findElement(By.linkText(issueDate)).click();
+		// driver.findElement(By.linkText(issueDate)).click();
 
 	}
 
@@ -205,7 +209,7 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void leadDetailsingrid() {
-		
+
 		common.ExplicityWait(10);
 		String finalpath = "//*[@id='row0jqxgrid']/div[4]/div/a";
 
@@ -216,15 +220,15 @@ public abstract class LeadMethods extends LoginMethod {
 		driver.findElement(By.xpath(finalpath)).click();
 
 	}
-	
-	public void switchtoCoapplicant(){
+
+	public void switchtoCoapplicant() {
 		LeadPage.clk_switchBtn.click();
 	}
 
 	public void selectCoapplicantLayout() throws InterruptedException {
 		common.ExplicityWait(20);
 		LeadPage.clk_switchBtn.click();
-		
+
 		driver.findElement(By.cssSelector("p[title=\"Co- applicant / Guarantor Details\"]")).click();
 		common.ExplicityWait(20);
 		LeadPage.clk_newCoapplicant.click();
@@ -248,12 +252,12 @@ public abstract class LeadMethods extends LoginMethod {
 			}
 		}
 	}
-	
-	public void attachedPhotoonChild(String path){
-		
+
+	public void attachedPhotoonChild(String path) {
+
 		LeadPage.childAttachedPhoto.sendKeys(path);
 		LeadPage.childAttachedUpload.click();
-		
+
 	}
 
 	public void getLeadid() {
@@ -310,12 +314,11 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.txt_CompanySubIndustry.sendKeys(subind);
 		LeadPage.list_subIndustryType.click();
 	}
-	
+
 	public void selectCompanySubIndus(String subind) {
 		LeadPage.txt_CompanySubIndustry.sendKeys(subind);
 		LeadPage.list_CompanyIndustry.click();
 	}
-
 
 	public void selectPermanentAddress() {
 		LeadPage.chkbox_permanantAddress.click();
@@ -353,9 +356,9 @@ public abstract class LeadMethods extends LoginMethod {
 			}
 		}
 	}
-	
-	public void closeLeadHandoffscreen(){
-		if(LeadPage.handoffscreen.isDisplayed()){
+
+	public void closeLeadHandoffscreen() {
+		if (LeadPage.handoffscreen.isDisplayed()) {
 			LeadPage.handdoffscreenclose.click();
 		}
 	}
@@ -401,147 +404,143 @@ public abstract class LeadMethods extends LoginMethod {
 		String fullName = "'" + fname + mname + lname + "'";
 		return fullName;
 	}
-/************************************************************************
- * 
- * Corporate Methods
- * 
- **************************************************************************/
+
+	/************************************************************************
+	 * 
+	 * Corporate Methods
+	 * 
+	 **************************************************************************/
 	public void selectcmpnykyc1doc() {
 
 		new Select(LeadPage.drpdwn_cmpnykyc1type).selectByIndex(2);
-	
 
 	}
-	
-	public void clickChildLeadTitle(){
+
+	public void clickChildLeadTitle() {
 		LeadPage.clcik_childleadtitle.click();
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.TAB);
 		act.sendKeys(Keys.ENTER);
-		
-		
+
 	}
-	
-	public void entercmpnyKYC1DocNo(String docNo){
+
+	public void entercmpnyKYC1DocNo(String docNo) {
 		LeadPage.txt_cmpnykyc1number.sendKeys(docNo);
 	}
-	
-	public void enterCompanyKYC1DOCNAME(String DocName){
+
+	public void enterCompanyKYC1DOCNAME(String DocName) {
 		LeadPage.txt_cmpnykyc1name.sendKeys(DocName);
 	}
-	public void selectcmyKYC1Issuedate(String issuedate,String year,String month){
-		
+
+	public void selectcmyKYC1Issuedate(String issuedate, String year, String month) {
+
 		LeadPage.txt_cmpnyKYC1IssueDate.click();
 		changeYear(year);
 		changeMonths(month);
 		driver.findElement(By.linkText(issuedate)).click();
 	}
-	
-	public void selectDOI(String date, String Month, String year){
+
+	public void selectDOI(String date, String Month, String year) {
 		LeadPage.codate_CompanyDOI.click();
 		changeYear(year);
 		changeMonths(Month);
 		driver.findElement(By.linkText(date)).click();
 	}
-	
-	public void uploadCompanyKYC1Document(String path){
+
+	public void uploadCompanyKYC1Document(String path) {
 		LeadPage.attachedcmpnykyc1.sendKeys(path);
-	LeadPage.pick_cmpyKYC1image.click();
+		LeadPage.pick_cmpyKYC1image.click();
 	}
-	
-	public void selectcmyKYC1Expiredate(String expire,String year,String month){
-		
+
+	public void selectcmyKYC1Expiredate(String expire, String year, String month) {
+
 		LeadPage.txt_cmpnyKYC1IssueDate.click();
 		changeYear(year);
 		changeMonths(month);
 		driver.findElement(By.linkText(expire)).click();
 	}
-	
-	public void changeCoapplicantLeadStatus(String status){
-	
-		new Select(	LeadPage.drpdown_CoapplicantLeadStatus).selectByVisibleText(status);
+
+	public void changeCoapplicantLeadStatus(String status) {
+
+		new Select(LeadPage.drpdown_CoapplicantLeadStatus).selectByVisibleText(status);
 	}
 
-	
-	public void selectKYC2DocType(){
+	public void selectKYC2DocType() {
 		new Select(LeadPage.drpdwn_cmpnykyc2type).selectByIndex(2);
 	}
-	
-	
-	public void entercmpnyKYC2DocNo(String docNo){
+
+	public void entercmpnyKYC2DocNo(String docNo) {
 		LeadPage.txt_cmpnykyc2No.sendKeys(docNo);
 	}
-	
-	public void selectcmyKYC2Issuedate(String issuedate,String year,String month){
-		
+
+	public void selectcmyKYC2Issuedate(String issuedate, String year, String month) {
+
 		LeadPage.txt_cmpnyKYC2IssueDate.click();
 		changeYear(year);
 		changeMonths(month);
 		driver.findElement(By.linkText(issuedate)).click();
 	}
-	
-	public void entercmpyKYC2DocumentName(String Doc2){
+
+	public void entercmpyKYC2DocumentName(String Doc2) {
 		LeadPage.txt_cmpnyKYC2Name.sendKeys(Doc2);
 	}
-	
-	public void uploadCompanyKYC2Document(String path){
+
+	public void uploadCompanyKYC2Document(String path) {
 		LeadPage.attachedcmpnykyc2.sendKeys(path);
-	LeadPage.pick_cmpyKYC2image.click();
+		LeadPage.pick_cmpyKYC2image.click();
 	}
-	
-	public void selectcmyKYC2Expiredate(String expire,String year,String month){
-		
+
+	public void selectcmyKYC2Expiredate(String expire, String year, String month) {
+
 		LeadPage.txt_cmpnyKYC2ExpireDate.click();
 		changeYear(year);
 		changeMonths(month);
 		driver.findElement(By.linkText(expire)).click();
 	}
-	
-	public void corporateSaveBtn(){
-		
+
+	public void corporateSaveBtn() {
+
 		LeadPage.btn_corporateSave.click();
 	}
-	
-	public void entercorpCurrentAddress(String add1){
+
+	public void entercorpCurrentAddress(String add1) {
 		LeadPage.txt_CompanyAddressLine1.sendKeys(add1);
 	}
-	
-	public void enterCompanyNameEntityName(String CompanyName){
-	LeadPage.txt_CoapplicantCompanyEnityName.sendKeys(CompanyName);
+
+	public void enterCompanyNameEntityName(String CompanyName) {
+		LeadPage.txt_CoapplicantCompanyEnityName.sendKeys(CompanyName);
 	}
-	
-	
+
 	public void selectComapnyPincode(String pinode) {
 		LeadPage.txt_companyPincode.sendKeys(pinode);
 		LeadPage.list_cropCompanyPin.click();
 	}
-	
 
 	public void selectCompanyIndutryd(String ind) {
 		LeadPage.txt_CompanyIndustry.sendKeys(ind);
 		LeadPage.list_CompanyIndustry.click();
 	}
-	
+
 	public void CompopanyselectCompanySubIndus(String subind) {
 		LeadPage.txt_CompanySubIndustry.sendKeys(subind);
 		LeadPage.list_CompanYSub.click();
 	}
-	
+
 	public void CompanyselectComapnyPincode(String pinode) {
 		LeadPage.txt_companyPincode.sendKeys(pinode);
 		LeadPage.list_CompanyPincode.click();
 	}
-	
-	public void CompanyKYC1Atatchement(String path){
+
+	public void CompanyKYC1Atatchement(String path) {
 		LeadPage.companyAttachedkyc1.sendKeys(path);
 		LeadPage.companyKYC1Uplaod.click();
 	}
-	
-	public void CompanyKYC2Atatchement(String path){
+
+	public void CompanyKYC2Atatchement(String path) {
 		LeadPage.companyAttachedkyc2.sendKeys(path);
 		LeadPage.companyAttachedUplaod2.click();
 	}
-	
+
 	public void fillPhotoIdKYCDetailsonchild(String photoIdtype, String DocNumber, String DocumenName, String path) {
 		selectPhotoIdProof("Yes");
 		selectPhotoIdProofType(photoIdtype);
@@ -552,40 +551,40 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.childAttachedUpload.click();
 
 	}
-	
-	public void childfillPhotoIdKYCDetailsonchild(String photoIdtype, String DocNumber, String DocumenName, String path) throws InterruptedException {
+
+	public void childfillPhotoIdKYCDetailsonchild(String photoIdtype, String DocNumber, String DocumenName, String path)
+			throws InterruptedException {
 		selectPhotoIdProof("Yes");
 		selectPhotoIdProofType(photoIdtype);
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
-	//	LeadPage.txt_photoidprfName.sendKeys(DocumenName);
+		// LeadPage.txt_photoidprfName.sendKeys(DocumenName);
 		Thread.sleep(2000);
 		LeadPage.childAttachedPhoto.sendKeys(path);
 		common.ImplicityWait(10);
 		LeadPage.childAttachedUpload.click();
 
 	}
-	
+
 	public void CompanyselectIndutryd(String ind) {
 		LeadPage.txt_CompanyIndustry.sendKeys(ind);
 		LeadPage.list_CompanyIndustry.click();
 
-}
-	
+	}
+
 	public void childRlosPermanenetPincode(String pinode) {
 		LeadPage.txt_permantpincode.sendKeys(pinode);
 		LeadPage.listcoapprlospin.click();
 	}
-	
+
 	public void childRlosselectDate(String date, String month, String year) {
 		LeadPage.icon_RlosCalendar.click();
 		changeMonths(month);
 		changeYear(year);
 		driver.findElement(By.linkText(date)).click();
 	}
-	
-	public void handoffchildswitch() throws InterruptedException{
-		driver.findElement(By.xpath("/html/body/div[7]/div[1]/a/span")).sendKeys(Keys.ESCAPE);
 
-		driver.findElement(By.xpath("//a[@id='ui-id-6']/p")).click();
+	public void handoffchildswitch() throws InterruptedException {
+		
+	new Actions(driver).moveToElement(LeadPage.clcik_childleadtitle).click().perform();
 	}
 }

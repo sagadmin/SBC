@@ -5,14 +5,9 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
-          <include name="logOutwithCSE"/>
           <include name="takeactionByBM"/>
           <include name="launchBrowser"/>
-          <include name="moveLeadToDocCollected"/>
-          <include name="FillCOApplicantLayout"/>
           <include name="loginwithbranch"/>
-          <include name="createApplicantLeadOnNewStage"/>
-          <include name="NavigatetoLead"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>

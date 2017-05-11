@@ -259,7 +259,7 @@ public class IndividualLead extends LeadMethods {
 	 * @serialData: April 26, 2017
 	 ******************************************************************/
 
-	@Test(enabled=true)
+	@Test(dependsOnMethods="loginwithbranch",enabled=false)
 	public void takeactionByBM() {
 
 		DOMConfigurator.configure("log.xml");
@@ -287,7 +287,6 @@ public class IndividualLead extends LeadMethods {
 		
 		closeLeadHandoffscreen();
 		
-		switchtoCoapplicant();
 		
 	
 		
@@ -506,18 +505,25 @@ public class IndividualLead extends LeadMethods {
 	 * 
 	 *************************************************************************************/
 
-	@Test(enabled=true)
+	@Test(dependsOnMethods="loginwithbranch",enabled=true)
 	public void coapplicantLeadHandoff() throws InterruptedException {
 		
 		common.ImplicityWait(10);
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("HandoffChildLead");
-	
-		Thread.sleep(3000);
 		
+		driver.navigate().to("http://10.57.15.4/sn/app/crmnextobject/detail/Lead?x=x954rn99eezutkq67eamktq9wunnlne96u2ag72");
+	
+		closeLeadHandoffscreen();
 		
 		
 		handoffchildswitch();
+		
+		Log.info("Click On Edit button");
+		clickEditButton();
+		
+		Log.info("Click Save Button");
+		corporateSaveBtn();
 		
 		
 

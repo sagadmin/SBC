@@ -102,7 +102,7 @@ public class Scripts extends JFrame {
 				getURLLink();
 
 				if (chk1.isSelected()) {
-					suites.add("D:/GITHUB/AU Financers/framwork.testing/TestSuites/IndvidualLeadProcess.xml");
+					suites.add("D:\\SAGITHUB\\AU Financers\\framwork.testing\\TestSuites\\IndvidualLeadProcess.xml");
 					tng.setTestSuites(suites);
 					tng.run();
 
