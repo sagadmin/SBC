@@ -1,5 +1,8 @@
 package aufin.reposrity.com;
 
+import aufin.common.com.TestData;
+import aufin.common.com.aufinscript;
+
 public interface LeadData extends Properties{
 	
 	String cseusername ="cseasset";
@@ -7,16 +10,17 @@ public interface LeadData extends Properties{
 	String bmusername ="117049";
 	String bmpassword ="acid_qa";
 	String entity ="INDIVIDUAL - FULL KYC";
-	String mobile_number ="9245884559";
+	String product = aufinscript.getProduct();
+	String mobile_number =data.getMobileNumber();
 	String salutration ="MR.";
-	String Fname ="Praveen";
-	String MName ="K";
-	String LName ="Khan";
-	String ShortName ="MKS";
-	String Date = "15";
+	String Fname =data.randomAlphaNumeric(5);
+	String MName =data.randomAlphaNumeric(5);
+	String LName =data.randomAlphaNumeric(5);
+	String ShortName =data.randomAlphaNumeric(3);
+	String Date = data.randomDateGenrated(2);
 	String month ="Aug";
-	String Year ="1958";
-	String aadhar ="7745215895478700";
+	String Year ="1968";
+	String aadhar =data.randomaadharnumber(16);
 	String Gender ="Male";
 	String CurrentAddress ="Banglore";
 	String fullName = Fname+MName+LName;
@@ -29,23 +33,23 @@ public interface LeadData extends Properties{
 	////////////////////////////////////////////////////////////////////////////////////
 	String coapplicantLeadStatusBM="BM Recommended";
 	String CoapplicantEntity ="PARTNERSHIP FIRM";
-	String CoapplicantFname ="GEMSES";
-	String CoapplicantMname ="Services";
-	String CoapplicantLname ="Solutions";
-	String CoapplicantShortName="VASALES";
-	String CoappliantMobileNo="7461507415";
+	String CoapplicantFname =data.randomAlphaNumeric(6);
+	String CoapplicantMname =data.randomAlphaNumeric(6);
+	String CoapplicantLname =data.randomAlphaNumeric(5);
+	String CoapplicantShortName=data.randomAlphaNumeric(3);
+	String CoappliantMobileNo=data.getMobileNumber();
 	
 	//////////////////////////////////////////////////////////////////////////////////////
 	
 	String co_EntityType="GOVT.";
 	String co_Salutaion="M/S.";
-	String co_Fname="WordPressservices";
-	String co_mname="FORCE";
-	String co_Lname="SolutionsProvider";
-	String co_ShortName="SFDC";
-	String co_MobileNo="8011479856";
+	String co_Fname=data.randomAlphaNumeric(6);
+	String co_mname=data.randomAlphaNumeric(2);
+	String co_Lname=data.randomAlphaNumeric(3);
+	String co_ShortName=data.randomAlphaNumeric(3);
+	String co_MobileNo=data.getMobileNumber();
 	
+	///////////////////////////////////////////////////////////////////////////////////////
 	
-
 
 }

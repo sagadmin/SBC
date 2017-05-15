@@ -352,6 +352,10 @@ public abstract class LeadMethods extends LoginMethod {
 			} else {
 				if (action.equalsIgnoreCase("CSE Rework")) {
 					LeadPage.link_cseRework.click();
+				}else{
+					if(action.equalsIgnoreCase("Duplicate Lead Confirmation")){
+						LeadPage.link_ApprovedDuplicate.click();
+					}
 				}
 			}
 		}

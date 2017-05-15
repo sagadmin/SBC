@@ -5,8 +5,9 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
+          <include name="takeactionByBM"/>
           <include name="launchBrowser"/>
-          <include name="childRLOSProcess"/>
+          <include name="FillCOApplicantLayout"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>

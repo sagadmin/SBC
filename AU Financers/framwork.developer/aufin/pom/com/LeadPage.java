@@ -555,6 +555,9 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="100163")
 	public static WebElement link_cseRework;
 	
+	@FindBy(xpath="//span[@id='100004']")
+	public static WebElement link_ApprovedDuplicate;
+	
 	
 	
 	/***************************************

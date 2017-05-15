@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Sanity]">
-  <test name="Indivial Customer LeadHandoff(failed)">
+  <test name="RLOS LeadHandoff with CLOS(failed)">
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
+          <include name="closeBrowser"/>
+          <include name="logOutwithCSE"/>
           <include name="takeactionByBM"/>
+          <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
+          <include name="FillCOApplicantLayout"/>
+          <include name="moveLeadToDocCollected"/>
           <include name="loginwithbranch"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>
-  </test> <!-- Indivial Customer LeadHandoff(failed) -->
+  </test> <!-- RLOS LeadHandoff with CLOS(failed) -->
 </suite> <!-- Failed suite [Sanity] -->

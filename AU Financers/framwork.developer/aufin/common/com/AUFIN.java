@@ -53,6 +53,7 @@ public class AUFIN extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 698, 307);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 250, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -79,7 +80,7 @@ public class AUFIN extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(username.getText().equalsIgnoreCase("ishant.k")&&password.getText().equals("Ishu@123")){
-					Scripts sp = new Scripts();
+					aufinscript sp = new aufinscript();
 					sp.setVisible(true);
 					setVisible(false);
 				}else{
@@ -94,23 +95,22 @@ public class AUFIN extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 228, Short.MAX_VALUE)
+					.addGap(66)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE)
-							.addGap(66)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel_1)
-										.addComponent(lblNewLabel_2))
-									.addGap(18)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(password)
-										.addComponent(username, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
-								.addComponent(btnLogin)))
-						.addComponent(lblNewLabel_3))
-					.addContainerGap(86, Short.MAX_VALUE))
+						.addComponent(lblNewLabel_3)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addComponent(lblNewLabel_1)
+									.addComponent(lblNewLabel_2))
+								.addGap(18)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(password)
+									.addComponent(username, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+							.addComponent(btnLogin)))
+					.addGap(86))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

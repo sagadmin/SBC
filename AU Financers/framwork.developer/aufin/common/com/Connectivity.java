@@ -2,6 +2,7 @@ package aufin.common.com;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import aufin.pom.com.LeadPage;
@@ -22,6 +23,12 @@ public class Connectivity implements Properties {
 		new LoginPage(driver);
 		new LeadPage(driver);
 
+	}
+	
+	@AfterSuite
+	public void closeBrowser(){
+		
+		driver.close();
 	}
 
 }

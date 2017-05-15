@@ -5,10 +5,13 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
+          <include name="closeBrowser"/>
           <include name="logOutwithCSE"/>
+          <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
           <include name="moveLeadToDocCollected"/>
           <include name="loginwithbranch"/>
+          <include name="createApplicantLeadOnNewStage"/>
           <include name="childRLOSProcess"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->

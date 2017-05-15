@@ -12,6 +12,7 @@
 <include name="logOutwithCSE"></include>
 <include name="loginwithbranch"></include>
 <include name="tackactionByBM"></include>
+<include name="coapplicantLeadHandoff"></include>
 </methods>
 </class>
 </classes>

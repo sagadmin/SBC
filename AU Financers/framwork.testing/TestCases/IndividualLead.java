@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import aufin.appmethods.com.LeadMethods;
+import aufin.common.com.aufinscript;
 import aufin.pom.com.LeadPage;
 import aufin.reposrity.com.LeadData;
 import aufin.utility.com.Log;
@@ -16,6 +17,13 @@ public class IndividualLead extends LeadMethods {
 	String Leadid;
 	String LeadStatus;
 	String LeadOwner;
+	String dupeEntity;
+	String dupeProduct;
+	String dupeMobile;
+	String dupeFname;
+	String dupeMname;
+	String dupeLname;
+	String dupeAddhar;
 
 	/***********************************************************************************************
 	 * 
@@ -26,10 +34,11 @@ public class IndividualLead extends LeadMethods {
 	 * @serialData : April 24, 2017
 	 * 
 	 ************************************************************************************************/
-	@Test(enabled=false)
+	@Test(priority=0)
 	public void NavigatetoLead() {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Navigate to Lead Module");
+		
 
 		Log.info("Enter Username");
 		Enter_txtName(LeadData.cseusername);
@@ -60,7 +69,7 @@ public class IndividualLead extends LeadMethods {
 	 * 
 	 ***************************************************************/
 
-	@Test(enabled = false)
+	@Test(priority=1)
 
 	public void createApplicantLeadOnNewStage() throws Exception {
 
@@ -74,27 +83,35 @@ public class IndividualLead extends LeadMethods {
 
 		Log.info("Select Entity Type");
 		select_Entity(LeadData.entity);
+		dupeEntity =LeadData.entity;
 
 		Log.info("Select Product Category");
 		select_ProductCategory("Wheels");
 
 		Log.info("Select Product");
-		select_ProductType("CV Loading (New)");
+		System.out.println(LeadData.product);
+		select_ProductType(LeadData.product);
+		dupeProduct=LeadData.product;
+		
 
 		Log.info("Enter Mobile Number");
 		enter_MobileNo(LeadData.mobile_number);
+		dupeMobile =LeadData.mobile_number;
 
 		Log.info("Select Salution");
 		Select_Salution(LeadData.salutration);
 
 		Log.info("Enter FirstName");
 		enter_FirstName(LeadData.Fname);
+		dupeFname=LeadData.Fname;
 
 		Log.info("Enter Middle Name");
 		enter_MiddleName(LeadData.MName);
+		dupeMname=LeadData.MName;
 
 		Log.info("Enter Last Name");
 		enter_LastName(LeadData.LName);
+		dupeLname =LeadData.LName;
 
 		Log.info("Enter ShortName");
 		enter_shortName(LeadData.ShortName);
@@ -106,6 +123,7 @@ public class IndividualLead extends LeadMethods {
 
 		Log.info("Enter AadharCard No");
 		enter_AadharCard(LeadData.aadhar);
+		dupeAddhar=LeadData.aadhar;
 
 		Log.info("Select Form Type");
 		select_form60("Form60");
@@ -126,6 +144,48 @@ public class IndividualLead extends LeadMethods {
 
 		Log.info("Click Save&Processd");
 		clickSaveProcessedButton();
+		
+		if(aufinscript.ck6.isSelected()==true){
+			common.ImplicityWait(30);
+			LeadtoLeadDedupe();
+			
+			logOutwithCSE();
+			loginwithbranch();
+			DOMConfigurator.configure("log.xml");
+			Log.startTestCase("Logged in with Branch Manager");
+
+			common.ImplicityWait(20);
+			
+			driver.navigate().refresh();
+			Log.info("Select lead view");
+			selectcustommodule("Asset ");
+			selectLeadCustomview("Duplicate Lead Confirmation *");
+			Log.info("Click and open lead");
+			leadDetailsingrid();
+
+			Log.info("Click On Edit button");
+			clickEditButton();
+
+			common.ImplicityWait(10);
+
+			Log.info("Approved Duplicate");
+			actionsonBM("Duplicate Lead Confirmation");
+
+			Log.info("Click Save Button");
+			clickSaveProcessedButton();
+			
+			Log.info("Logged out from System");
+			click_LoginOutButton();
+
+			NavigatetoLead();
+
+			
+		}else{
+			if(aufinscript.ck7.isSelected()){
+				
+				
+			}
+		}
 
 		Log.endTestCase("-----TESTCASE ENDED HERE---------");
 
@@ -140,23 +200,31 @@ public class IndividualLead extends LeadMethods {
 	 * 
 	 ***********************************************************/
 
-	@Test(enabled = false)
+	@Test(priority=2)
 	public void moveLeadToDocCollected() {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Move a lead from New to Doc collected Stage");
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		navigateToLeadHomeScreen();
-
-		Log.info("Select lead view");
-		selectcustommodule("Asset ");
-		selectLeadCustomview("New Lead *");
+		
+		driver.navigate().refresh();
+		
+		if(aufinscript.ck6.isSelected()){
+			selectcustommodule("Asset ");
+			selectLeadCustomview("Approve Duplicate *");
+			
+		}else{
+			Log.info("Select lead view");
+			selectcustommodule("Asset ");
+			selectLeadCustomview("New Lead *");
+		}
 
 		Log.info("Click and open lead");
 		leadDetailsingrid();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Click On Edit button");
 		clickEditButton();
@@ -214,7 +282,7 @@ public class IndividualLead extends LeadMethods {
 	 * @serialData: April 26, 2017
 	 ******************************************************************/
 
-	@Test(enabled=false)
+	@Test(priority=4)
 	public void logOutwithCSE() {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Logged out");
@@ -232,7 +300,7 @@ public class IndividualLead extends LeadMethods {
 	 * @serialData: April 26, 2017
 	 ******************************************************************/
 
-	@Test(enabled=true)
+	@Test(priority=5)
 	public void loginwithbranch() {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Logged in with Branch Manager");
@@ -259,7 +327,7 @@ public class IndividualLead extends LeadMethods {
 	 * @serialData: April 26, 2017
 	 ******************************************************************/
 
-	@Test(dependsOnMethods="loginwithbranch",enabled=false)
+	@Test(priority=6)
 	public void takeactionByBM() {
 
 		DOMConfigurator.configure("log.xml");
@@ -321,28 +389,9 @@ public class IndividualLead extends LeadMethods {
 	 * @throws Exception
 	 ***********************************************************************/
 
-	@Test(enabled = false)
 	public void LeadtoLeadDedupe() throws Exception {
 		DOMConfigurator.configure("log.xml");
-		Log.startTestCase("Lead to Lead Dedupe");
-		Assert.assertTrue(LeadPage.alert_leadtolead.isDisplayed(), "Fail: Lead to lead dedupe screen not found");
-		takeDedupeaction("ignore");
-		String LeadStatusonDedupe = LeadPage.getLeadStatus.getText();
-		Assert.assertEquals(LeadStatusonDedupe, "Duplicate Lead Confirmation");
-	}
-
-	/**********************************************************************
-	 * @author Ishant Kushwaha
-	 * 
-	 * @TestCase : Lead to Customer De dupe TestCases
-	 * 
-	 * 
-	 **********************************************************************/
-
-	@Test(enabled = false)
-	public void LeadtoCustomerDedupe() {
-		DOMConfigurator.configure("log.xml");
-		Log.startTestCase("APPLICANT LEAD");
+		Log.startTestCase("Craete an RLOS Lead for Individual Entity");
 
 		Log.info("Navigate to Asset");
 		navigate_to_asset();
@@ -350,51 +399,154 @@ public class IndividualLead extends LeadMethods {
 		common.ImplicityWait(10);
 
 		Log.info("Select Entity Type");
-		select_Entity("INDIVIDUAL - FULL KYC");
+		select_Entity(dupeEntity);
 
 		Log.info("Select Product Category");
 		select_ProductCategory("Wheels");
 
 		Log.info("Select Product");
-		select_ProductType("CV Loading (New)");
+		System.out.println(LeadData.product);
+		select_ProductType(LeadData.product);
+		
 
 		Log.info("Enter Mobile Number");
-		enter_MobileNo("8843523698");
+		enter_MobileNo(dupeMobile);
+		
 
 		Log.info("Select Salution");
-		Select_Salution("MRS.");
+		Select_Salution(LeadData.salutration);
 
 		Log.info("Enter FirstName");
-		enter_FirstName("Megha");
+		enter_FirstName(dupeFname);
+		
 
 		Log.info("Enter Middle Name");
-		enter_MiddleName("Singh");
+		enter_MiddleName(dupeMname);
 
 		Log.info("Enter Last Name");
-		enter_LastName("Sharma");
+		enter_LastName(dupeLname);
 
 		Log.info("Enter ShortName");
-		enter_shortName("SS");
+		enter_shortName(LeadData.ShortName);
 
 		common.downscroll();
 
 		Log.info("Select Date of Birth");
-		selectDate("18", "May", "1950");
+		selectDate(LeadData.Date, LeadData.month, LeadData.Year);
 
 		Log.info("Enter AadharCard No");
-		enter_AadharCard("745886256565 ");
-
-		Log.info("Enter PAN NUMBER");
-		enter_panno("CDFSE2884S");
+		enter_AadharCard(dupeAddhar);
 
 		Log.info("Select Form Type");
 		select_form60("Form60");
 
+		Log.info("Select Gender Type");
+		selectGender(LeadData.Gender);
+
+		Log.info("Select Residance Type");
+		selectResidance(1);
+
+		Log.info("Enter Current Address Details");
+		enterCurrentAddressLine1(LeadData.CurrentAddress);
+
+		Log.info("Select Current AddressPincode");
+		selectcurrentPincode("201005");
+
+		common.downscroll();
+
 		Log.info("Click Save&Processd");
 		clickSaveProcessedButton();
+		
+		common.ImplicityWait(20);
+		takeDedupeaction("ignore");
+		
+		
+		
+		
+		
+	}
 
-		Assert.assertTrue(LeadPage.alert_leadtolead.isDisplayed(), "Failed: Lead to customer dedupe not found");
-		tackeCustomerDedupeaction();
+	/**********************************************************************
+	 * @author Ishant Kushwaha
+	 * @throws Exception 
+	 * 
+	 * @TestCase : Lead to Customer De dupe TestCases
+	 * 
+	 * 
+	 **********************************************************************/
+
+	@Test(enabled = false)
+	public void LeadtoCustomerDedupe() throws Exception {
+		Log.startTestCase("Craete an RLOS Lead for Individual Entity");
+
+		Log.info("Navigate to Asset");
+		navigate_to_asset();
+
+		common.ImplicityWait(10);
+
+		Log.info("Select Entity Type");
+		select_Entity(dupeEntity);
+
+		Log.info("Select Product Category");
+		select_ProductCategory("Wheels");
+
+		Log.info("Select Product");
+		System.out.println(LeadData.product);
+		select_ProductType(LeadData.product);
+		
+
+		Log.info("Enter Mobile Number");
+		enter_MobileNo(LeadData.mobile_number);
+		
+
+		Log.info("Select Salution");
+		Select_Salution(LeadData.salutration);
+
+		Log.info("Enter FirstName");
+		enter_FirstName(LeadData.Fname);
+		
+
+		Log.info("Enter Middle Name");
+		enter_MiddleName(LeadData.LName);
+
+		Log.info("Enter Last Name");
+		enter_LastName(LeadData.LName);
+
+		Log.info("Enter ShortName");
+		enter_shortName(LeadData.ShortName);
+
+		common.downscroll();
+
+		Log.info("Select Date of Birth");
+		selectDate(LeadData.Date, LeadData.month, LeadData.Year);
+
+		Log.info("Enter AadharCard No");
+		enter_AadharCard(dupeAddhar);
+
+		Log.info("Select Form Type");
+		select_form60("Form60");
+
+		Log.info("Select Gender Type");
+		selectGender(LeadData.Gender);
+
+		Log.info("Select Residance Type");
+		selectResidance(1);
+
+		Log.info("Enter Current Address Details");
+		enterCurrentAddressLine1(LeadData.CurrentAddress);
+
+		Log.info("Select Current AddressPincode");
+		selectcurrentPincode("201005");
+
+		common.downscroll();
+
+		Log.info("Click Save&Processd");
+		clickSaveProcessedButton();
+		
+		common.ImplicityWait(20);
+		takeDedupeaction("ignore");
+
+		
 
 	}
 
@@ -406,7 +558,7 @@ public class IndividualLead extends LeadMethods {
 	 * 
 	 **************************************************************/
 
-	@Test(enabled = false)
+	@Test(priority=3)
 	public void FillCOApplicantLayout() throws InterruptedException {
 
 		DOMConfigurator.configure("log.xml");
@@ -499,20 +651,18 @@ public class IndividualLead extends LeadMethods {
 	 * @author Ishant Kushwaha
 	 * @throws InterruptedException 
 	 * 
-	 * @TestCase : Coapplicant Lead Handoff
+	 * @TestCase : Coapplicant LeadHandoff
 	 * 
 	 * 
 	 * 
 	 *************************************************************************************/
 
-	@Test(dependsOnMethods="loginwithbranch",enabled=true)
+	@Test(priority=7)
 	public void coapplicantLeadHandoff() throws InterruptedException {
 		
 		common.ImplicityWait(10);
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("HandoffChildLead");
-		
-		driver.navigate().to("http://10.57.15.4/sn/app/crmnextobject/detail/Lead?x=x954rn99eezutkq67eamktq9wunnlne96u2ag72");
 	
 		closeLeadHandoffscreen();
 		
@@ -529,113 +679,7 @@ public class IndividualLead extends LeadMethods {
 
 	}
 
-	/*******************************************************************************************************************
-	 * @author Ishant Kushwaha {Lead creation process for CLOS as Primary }
-	 * 
-	 * 
-	 ******************************************************************************************************************/
-//	@Test(enabled = false)
-//	public void createB2BLeadOnNewStage() throws Exception {
-//
-//		DOMConfigurator.configure("log.xml");
-//		Log.startTestCase("Craete an CLOS Lead As parent");
-//
-//		Log.info("Navigate to Asset");
-//		navigate_to_asset();
-//
-//		common.ImplicityWait(10);
-//
-//		Log.info("Click on Doc Collected");
-//		click_docCollectedStage();
-//
-//		Log.info("Select Entity Type");
-//		select_Entity(LeadData.co_EntityType);
-//
-//		Log.info("Select Product Category");
-//		select_ProductCategory("Wheels");
-//
-//		Log.info("Select Product");
-//		select_ProductType("CV Loading (New)");
-//
-//		Log.info("Enter Mobile Number");
-//		enter_MobileNo(LeadData.co_MobileNo);
-//
-//		Log.info("Select Salution");
-//		Select_Salution(LeadData.co_Salutaion);
-//
-//		Log.info("Enter FirstName");
-//		enter_FirstName(LeadData.co_Fname);
-//
-//		Log.info("Enter Middle Name");
-//		enter_MiddleName(LeadData.co_mname);
-//
-//		Log.info("Enter Last Name");
-//		enter_LastName(LeadData.co_Lname);
-//
-//		Log.info("Enter ShortName");
-//		enter_shortName(LeadData.co_ShortName);
-//		Log.info("Select RiskClassification");
-//		selectRiskClassification(2);
-//
-//		Log.info("Enter Loan Amount");
-//		enterLoanAmount(LeadData.LoanAmount);
-//
-//		Log.info("Select Industry");
-//		selectCompanyIndutryd("Food Product");
-//
-//		Log.info("Select SubInd");
-//		CompopanyselectCompanySubIndus("FISH");
-//
-//		common.downscroll();
-//
-//		Log.info("Enter Corporate Company Address");
-//		entercorpCurrentAddress("dfg");
-//
-//		Log.info("Select Corporate Company Pin");
-//		CompanyselectComapnyPincode("201005");
-//
-//		Log.info("select Corporate KYC1");
-//		selectcmpnykyc1doc();
-//
-//		Log.info("Enter KYC DOCUMENT Number");
-//		entercmpnyKYC1DocNo("158");
-//
-//		Log.info("Enter Document name");
-//		enterCompanyKYC1DOCNAME("Test");
-//
-//		Log.info("Enter Company KYC Issue Date");
-//		selectcmyKYC1Issuedate("10", "2015", "Jan");
-//
-//		Log.info("Upload KYC1 Attachement");
-//		CompanyKYC1Atatchement("C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-//
-//		Log.info("Insert KYC 1 Expire Date");
-//		selectcmyKYC1Expiredate("20", "2014", "Mar");
-//
-//		Log.info("Select Corporate KYC2");
-//		selectKYC2DocType();
-//
-//		Log.info("Select KYC 2 DocumentName");
-//		entercmpyKYC2DocumentName("dfg");
-//
-//		Log.info("Enter KYC2 Doc Number");
-//		entercmpnyKYC2DocNo("4545");
-//
-//		Log.info("Upload KYC 2 Doc");
-//		CompanyKYC2Atatchement("C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-//
-//		Log.info("Enter Company Name/Entity Name");
-//		enterCompanyNameEntityName("Sphonx");
-//
-//		// Log.info("Select DOI");
-//		// selectDOI("20", "May", "2015");
-//
-//		Log.info("Select DOI");
-//		selectDOI("20", "May", "2015");
-//
-//		clickSaveProcessedButton();
-//
-//	}
+	
 
 	/*************************************************************************************************
 	 * @author Ishant Kushwaha
@@ -646,7 +690,7 @@ public class IndividualLead extends LeadMethods {
 	 * @throws InterruptedException
 	 ************************************************************************************************/
 
-	@Test(enabled = false,priority=2)
+	@Test(priority=3)
 	public void childRLOSProcess() throws InterruptedException {
 
 		DOMConfigurator.configure("log.xml");
@@ -683,8 +727,8 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Select Date of Birth");
 		childRlosselectDate(LeadData.Date, LeadData.month, LeadData.Year);
 
-		Log.info("Enter AadharCard No");
-		enter_AadharCard(LeadData.aadhar);
+//		Log.info("Enter AadharCard No");
+//		enter_AadharCard(LeadData.aadhar);
 
 		Log.info("Select Form Type");
 		select_form60("Form60");
@@ -726,7 +770,7 @@ public class IndividualLead extends LeadMethods {
 
 	}
 
-	@Test(priority = 1,enabled=false)
+	@Test(priority = 1)
 	public void CLOSPRocessforparent() {
 
 		DOMConfigurator.configure("log.xml");
@@ -747,7 +791,8 @@ public class IndividualLead extends LeadMethods {
 		select_ProductCategory("Wheels");
 
 		Log.info("Select Product");
-		select_ProductType("CV Loading (New)");
+		System.out.println(LeadData.product);
+		select_ProductType(LeadData.product);
 
 		Log.info("Select Salutraion");
 		Select_Salution("M/S.");
@@ -834,5 +879,30 @@ public class IndividualLead extends LeadMethods {
 		
 		LeadOwner = LeadPage.getLeadOwner.getText();
 
+	}
+	
+	
+	public void createFraudLead() throws Exception{
+		
+		DOMConfigurator.configure("log.xml");
+		Log.startTestCase("AML FRAUD Lead");
+		
+		
+		Log.info("Create a lead");
+		createApplicantLeadOnNewStage();
+		
+		Log.info("Move to Doc Collected");
+		moveLeadToDocCollected();
+		
+		Log.info("Sent for bm");
+		logOutwithCSE();
+		
+		Log.info("Logged in with Branch Manager");
+		loginwithbranch();
+		
+		Log.info("Take Action on Lead");
+		takeactionByBM();
+		
+		Log.info("Verify alert notification get Displayed");
 	}
 }

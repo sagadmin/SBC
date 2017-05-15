@@ -12,6 +12,11 @@
 <include name="logOutwithCSE"></include>
 <include name="loginwithbranch"></include>
 <include name="takeactionByBM"></include>
+<include name="coapplicantLeadHandoff"></include>
+<exclude name="childRLOSProcess"></exclude>
+<exclude name="LeadSearchHome"></exclude>
+<exclude name="LeadtoCustomerDedupe"></exclude>
+<exclude name="LeadtoLeadDedupe"></exclude>
 </methods>
 </class>
 </classes>
