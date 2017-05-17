@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SanitySuie">
+<test name="RLOS LeadHandoff with RLOS">
+<classes>
+<class name="TestCases.AssetChanges">
+<methods>
+<include name="NavigatetoLead"></include>
+<include name="createApplicantLeadOnNewStage"></include>
+<include name="moveLeadToDocCollected"></include>
+</methods>
+</class>
+</classes>
+</test>
+</suite>
