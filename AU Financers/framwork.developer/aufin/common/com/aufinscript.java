@@ -88,7 +88,7 @@ public class aufinscript extends JFrame {
 		env.setFont(new Font("Tahoma", Font.BOLD, 11));
 		env.setForeground(new Color(0, 0, 255));
 		env.setModel(
-				new DefaultComboBoxModel(new String[] { "AUFIN SA", "AUFIN SIT", "AUFIN UAT", "AUFIN PRODUCTION" }));
+				new DefaultComboBoxModel(new String[] {"AUFIN DEVPORT","AUFIN SA", "AUFIN SIT", "AUFIN UAT", "AUFIN PRODUCTION"}));
 
 		JLabel product = new JLabel("SELECT PRODUCT");
 		product.setForeground(new Color(240, 255, 255));
@@ -152,7 +152,7 @@ public class aufinscript extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				getProduct();
 				if (ck2.isSelected()) {
-					suites.add("D:\\SAGITHUB\\AU Financers\\framwork.testing\\TestSuites\\RLOS&RLOS.xml");
+					suites.add("D:\\SAGITHUB\\AU Financers\\framwork.testing\\TestSuites\\RLOS&RLOSCR.xml");
 					tng.setTestSuites(suites);
 					tng.run();
 
@@ -227,6 +227,11 @@ public class aufinscript extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("DESIGN&DEVELOPED BY:ISHANT KUSHWAH");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_3.setForeground(new Color(0, 0, 255));
+		
+		JCheckBox ck9 = new JCheckBox("RLOS WITH RLOS-CR");
+		ck9.setForeground(new Color(240, 255, 255));
+		ck9.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ck9.setBackground(new Color(0, 128, 128));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -258,9 +263,12 @@ public class aufinscript extends JFrame {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(ck3, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(ck6, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(ck7, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(ck9, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(ck6, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(ck7, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)))
 							.addGap(27)))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -307,7 +315,9 @@ public class aufinscript extends JFrame {
 						.addComponent(ck7)
 						.addComponent(ck6)
 						.addComponent(ck8))
-					.addGap(199)
+					.addGap(18)
+					.addComponent(ck9)
+					.addGap(158)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
@@ -328,8 +338,9 @@ public class aufinscript extends JFrame {
 
 	public static String getURL() {
 		String SIT = "http://10.57.15.4/sn/app/login/login";
-		String UAT = "http://10.15.18.12/sn/app/login/login";
-		String SA = "http://aufinsa/sn/app/login/login";
+		String UAT = "http://10.57.18.12/sn/app/login/login";
+		String devPort = "http://aufin.crmnext.com/sn/app/login/login";
+		String SA ="http://aufinsa/sn/app/login/login";
 		if (env.getSelectedItem().equals("AUFIN SIT")) {
 			return SIT;
 
@@ -338,8 +349,12 @@ public class aufinscript extends JFrame {
 			if (env.getSelectedItem().equals("AUFIN UAT")) {
 				return UAT;
 			} else {
-				if (env.getSelectedItem().equals("AUFIN SA")) {
-					return SA;
+				if (env.getSelectedItem().equals("AUFIN DEVPORT")) {
+					return devPort;
+				}else{
+					if(env.getSelectedItem().equals("AUFIN SA")){
+						return SA;
+					}
 				}
 			}
 		}
@@ -350,7 +365,8 @@ public class aufinscript extends JFrame {
 	public static String getAssertURL() {
 		String SIT = "http://10.57.15.4/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
 		String UAT = "http://10.57.18.12/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
-		String SA = "http://aufinsa/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
+		String devPort = "http://aufin.crmnext.com/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
+		String SA ="http://aufinsa/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
 		if (env.getSelectedItem().equals("AUFIN SIT")) {
 			return SIT;
 
@@ -359,8 +375,38 @@ public class aufinscript extends JFrame {
 			if (env.getSelectedItem().equals("AUFIN UAT")) {
 				return UAT;
 			} else {
-				if (env.getSelectedItem().equals("AUFIN SA")) {
-					return SA;
+				if (env.getSelectedItem().equals("AUFIN DEVPORT")) {
+					return devPort;
+				}else{
+					if(env.getSelectedItem().equals("AUFIN SA")){
+						return SA;
+					}
+				}
+			}
+		}
+		return null;
+
+	}
+	
+	public static String getHomeScreen() {
+		String SIT = "http://10.57.15.4/sn/app/CRMNextObject/Home/Lead";
+		String UAT = "http://10.57.18.12/sn/app/CRMNextObject/Home/Lead";
+		String devPort = "http://aufin.crmnext.com/sn/app/CRMNextObject/Home/Lead";
+		String SA ="http://aufinsa/sn/app/CRMNextObject/Home/Lead";
+		if (env.getSelectedItem().equals("AUFIN SIT")) {
+			return SIT;
+
+		} else {
+
+			if (env.getSelectedItem().equals("AUFIN UAT")) {
+				return UAT;
+			} else {
+				if (env.getSelectedItem().equals("AUFIN DEVPORT")) {
+					return devPort;
+				}else{
+					if(env.getSelectedItem().equals("AUFIN SA")){
+						return SA;
+					}
 				}
 			}
 		}

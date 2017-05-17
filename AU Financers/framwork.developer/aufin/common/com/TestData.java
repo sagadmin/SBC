@@ -18,13 +18,14 @@ public class TestData {
 		return builder.toString();
 		}
 		    
-	public String getMobileNumber(){
-		
-		String aadhar[]={"7452158970","7456682105","8945743658","9899254789","9456878965","9012574569"};
-		Random random = new Random();
-		String getMobile=aadhar[random.nextInt(5)];
-		return getMobile;
-		}
+		public static String randomMobileNumber(int count) {
+			StringBuilder builder = new StringBuilder();
+			while (count-- != 0) {
+			int character = (int)(Math.random()*NUMERIC_STRING.length());
+			builder.append(NUMERIC_STRING.charAt(character));
+			}
+			return builder.toString();
+			}
 	
 	public static String randomaadharnumber(int count) {
 		StringBuilder builder = new StringBuilder();

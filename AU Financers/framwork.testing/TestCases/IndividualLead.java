@@ -1,8 +1,6 @@
 package TestCases;
 
 import org.apache.log4j.xml.DOMConfigurator;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import aufin.appmethods.com.LeadMethods;
@@ -79,7 +77,7 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Navigate to Asset");
 		navigate_to_asset();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Select Entity Type");
 		select_Entity(LeadData.entity);
@@ -145,54 +143,49 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Click Save&Processd");
 		clickSaveProcessedButton();
 		
-		if(aufinscript.ck6.isSelected()==true){
-			common.ImplicityWait(30);
-			LeadtoLeadDedupe();
-			
-			logOutwithCSE();
-			loginwithbranch();
-			DOMConfigurator.configure("log.xml");
-			Log.startTestCase("Logged in with Branch Manager");
-
-			common.ImplicityWait(20);
-			
-			driver.navigate().refresh();
-			Log.info("Select lead view");
-			selectcustommodule("Asset ");
-			selectLeadCustomview("Duplicate Lead Confirmation *");
-			Log.info("Click and open lead");
-			leadDetailsingrid();
-
-			Log.info("Click On Edit button");
-			clickEditButton();
-
-			common.ImplicityWait(10);
-
-			Log.info("Approved Duplicate");
-			actionsonBM("Duplicate Lead Confirmation");
-
-			Log.info("Click Save Button");
-			clickSaveProcessedButton();
-			
-			Log.info("Logged out from System");
-			click_LoginOutButton();
-
-			NavigatetoLead();
-
-			
-		}else{
-			if(aufinscript.ck7.isSelected()){
-				
-				
-			}
-		}
-
+//		if(aufinscript.ck6.isSelected()==true){
+//			common.ImplicityWait(30);
+//			LeadtoLeadDedupe();
+//			
+//			logOutwithCSE();
+//			loginwithbranch();
+//			DOMConfigurator.configure("log.xml");
+//			Log.startTestCase("Logged in with Branch Manager");
+//
+//			common.ImplicityWait(20);
+//			
+//			driver.navigate().refresh();
+//			Log.info("Select lead view");
+//			selectcustommodule("Asset ");
+//			selectLeadCustomview("Duplicate Lead Confirmation *");
+//			Log.info("Click and open lead");
+//			leadDetailsingrid();
+//
+//			Log.info("Click On Edit button");
+//			clickEditButton();
+//
+//			common.ImplicityWait(10);
+//
+//			Log.info("Approved Duplicate");
+//			actionsonBM("Duplicate Lead Confirmation");
+//
+//			Log.info("Click Save Button");
+//			clickSaveProcessedButton();
+//			
+//			Log.info("Logged out from System");
+//			click_LoginOutButton();
+//
+//			NavigatetoLead();
+//
+//			
+//		}
 		Log.endTestCase("-----TESTCASE ENDED HERE---------");
 
 	}
 
 	/***********************************************************
 	 * @author Ishant Kushwaha
+	 * @throws InterruptedException 
 	 * 
 	 * @TestCase : Move a lead From New Stage to Doc collected.
 	 * 
@@ -201,7 +194,8 @@ public class IndividualLead extends LeadMethods {
 	 ***********************************************************/
 
 	@Test(priority=2)
-	public void moveLeadToDocCollected() {
+	public void moveLeadToDocCollected() throws InterruptedException {
+		
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Move a lead from New to Doc collected Stage");
 
@@ -215,11 +209,12 @@ public class IndividualLead extends LeadMethods {
 			selectcustommodule("Asset ");
 			selectLeadCustomview("Approve Duplicate *");
 			
-		}else{
+		}
+		
 			Log.info("Select lead view");
 			selectcustommodule("Asset ");
 			selectLeadCustomview("New Lead *");
-		}
+
 
 		Log.info("Click and open lead");
 		leadDetailsingrid();
@@ -249,11 +244,13 @@ public class IndividualLead extends LeadMethods {
 
 		Log.info("Upload Customer Signature");
 		uploadCustomerSign(LeadData.CustomerSignature);
+		
+		common.ImplicityWait(20);
 
 		Log.info("Fill PhotoID Name");
 		fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga", "C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		Log.info("Select permananet address");
 		enterPermananetAddressLine1("Permanant");
 
@@ -333,7 +330,7 @@ public class IndividualLead extends LeadMethods {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Logged in with Branch Manager");
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Select lead view");
 		selectcustommodule("Asset ");
@@ -345,7 +342,7 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Click On Edit button");
 		clickEditButton();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Recommended Asset Lead");
 		actionsonBM("Approved");
@@ -376,7 +373,7 @@ public class IndividualLead extends LeadMethods {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Lead Search from Home Screen");
 		
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		navigateToLeadHomeScreen();
 		LeadSearchonHOmeScreen("Lead No", "dfghjk");
 	}
@@ -396,7 +393,7 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Navigate to Asset");
 		navigate_to_asset();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Select Entity Type");
 		select_Entity(dupeEntity);
@@ -482,7 +479,7 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Navigate to Asset");
 		navigate_to_asset();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Select Entity Type");
 		select_Entity(dupeEntity);
@@ -564,16 +561,16 @@ public class IndividualLead extends LeadMethods {
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("CLOS Lead for Child Layout");
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
-		// navigateToLeadHomeScreen();
-		//
-		// Log.info("Select lead view");
-		// selectcustommodule("Asset ");
-		// selectLeadCustomview("New Lead *");
-		//
-		// Log.info("Click and open lead");
-		// leadDetailsingrid();
+		 navigateToLeadHomeScreen();
+		
+		 Log.info("Select lead view");
+		 selectcustommodule("Asset ");
+		 selectLeadCustomview("New Lead *");
+		
+		 Log.info("Click and open lead");
+		 leadDetailsingrid();
 
 		Log.info("Select Co-applicantLayout");
 		selectCoapplicantLayout();
@@ -605,6 +602,9 @@ public class IndividualLead extends LeadMethods {
 
 		Log.info("Enter KYC Doc1 Number");
 		entercmpnyKYC1DocNo("1569");
+		
+		
+		common.ImplicityWait(20);
 
 		Log.info("Upload KYC1 Attachement");
 		uploadCompanyKYC1Document("C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
@@ -660,7 +660,7 @@ public class IndividualLead extends LeadMethods {
 	@Test(priority=7)
 	public void coapplicantLeadHandoff() throws InterruptedException {
 		
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("HandoffChildLead");
 	
@@ -695,11 +695,12 @@ public class IndividualLead extends LeadMethods {
 
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Craete an RLOS Process for Child");
-
+		
+		common.ImplicityWait(20);
 		Log.info("Select Co-applicantLayout");
 		selectCoapplicantLayout();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("Select Entity Type");
 		select_Entity(LeadData.entity);
@@ -727,11 +728,13 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Select Date of Birth");
 		childRlosselectDate(LeadData.Date, LeadData.month, LeadData.Year);
 
-//		Log.info("Enter AadharCard No");
-//		enter_AadharCard(LeadData.aadhar);
+		Log.info("Enter AadharCard No");
+		enter_AadharCard(LeadData.aadhar);
 
 		Log.info("Select Form Type");
 		select_form60("Form60");
+		
+		
 
 		Log.info("Select Gender Type");
 		selectGender(LeadData.Gender);
@@ -753,13 +756,14 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Upload Customer Signature");
 		uploadCustomerSign(LeadData.CustomerSignature);
 		
-
+		common.ImplicityWait(20);
+		common.ExplicityWait(50);
 		 Log.info("Fill PhotoID Name");
 		 childfillPhotoIdKYCDetailsonchild("Aadhar Card", "Aadhar123", "Aadga",
 		 "C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
 //		 fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga", "C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		Log.info("Select permananet address");
 		enterPermananetAddressLine1("Permanant");
 
@@ -770,7 +774,7 @@ public class IndividualLead extends LeadMethods {
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1,enabled=true)
 	public void CLOSPRocessforparent() {
 
 		DOMConfigurator.configure("log.xml");
@@ -779,7 +783,7 @@ public class IndividualLead extends LeadMethods {
 		Log.info("Navigate to Asset");
 		navigate_to_asset();
 
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 
 		Log.info("click on Doc collected stage");
 		click_docCollectedStage();

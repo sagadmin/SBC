@@ -5,6 +5,7 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
+          <include name="closeBrowser"/>
           <include name="takeactionByBM"/>
           <include name="launchBrowser"/>
           <include name="FillCOApplicantLayout"/>

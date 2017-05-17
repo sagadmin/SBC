@@ -13,6 +13,7 @@
           <include name="FillCOApplicantLayout"/>
           <include name="moveLeadToDocCollected"/>
           <include name="loginwithbranch"/>
+          <include name="createApplicantLeadOnNewStage"/>
         </methods>
       </class> <!-- TestCases.IndividualLead -->
     </classes>

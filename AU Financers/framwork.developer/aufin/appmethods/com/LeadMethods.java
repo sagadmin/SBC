@@ -10,7 +10,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import aufin.common.com.aufinscript;
 import aufin.pom.com.LeadPage;
+import aufin.reposrity.com.LeadData;
 import aufin.reposrity.com.Properties;
 
 public abstract class LeadMethods extends LoginMethod {
@@ -32,7 +35,7 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void select_ProductCategory(String productCat) {
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		LeadPage.icon_ProductSearch.click();
 		LeadPage.icon_txt_searchbox.sendKeys(productCat);
 		LeadPage.icon_txt_searchbox.sendKeys(Keys.ENTER);
@@ -226,11 +229,9 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void selectCoapplicantLayout() throws InterruptedException {
-		common.ExplicityWait(20);
+		common.ImplicityWait(20);
 		LeadPage.clk_switchBtn.click();
-
 		driver.findElement(By.cssSelector("p[title=\"Co- applicant / Guarantor Details\"]")).click();
-		common.ExplicityWait(20);
 		LeadPage.clk_newCoapplicant.click();
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
@@ -238,7 +239,7 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void navigateToLeadHomeScreen() {
-		driver.navigate().to("http://10.57.15.4/sn/app/CRMNextObject/Home/Lead");
+		driver.navigate().to(Properties.HomeScreen);
 	}
 
 	public void LeadSearchonHOmeScreen(String parameter, String value) {
@@ -295,8 +296,9 @@ public abstract class LeadMethods extends LoginMethod {
 		selectPhotoIdProofType(photoIdtype);
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
 		LeadPage.txt_photoidprfName.sendKeys(DocumenName);
+		common.ImplicityWait(60);
 		LeadPage.photoidUploadedfile.sendKeys(path);
-		common.ImplicityWait(10);
+		common.ImplicityWait(60);
 		LeadPage.clk_photoidUpload.click();
 
 	}
@@ -551,7 +553,7 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
 		LeadPage.txt_photoidprfName.sendKeys(DocumenName);
 		LeadPage.childAttachedPhoto.sendKeys(path);
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		LeadPage.childAttachedUpload.click();
 
 	}
@@ -564,7 +566,7 @@ public abstract class LeadMethods extends LoginMethod {
 		// LeadPage.txt_photoidprfName.sendKeys(DocumenName);
 		Thread.sleep(2000);
 		LeadPage.childAttachedPhoto.sendKeys(path);
-		common.ImplicityWait(10);
+		common.ImplicityWait(20);
 		LeadPage.childAttachedUpload.click();
 
 	}

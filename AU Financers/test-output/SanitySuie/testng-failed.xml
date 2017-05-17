@@ -3,18 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [SanitySuie]">
   <test name="RLOS LeadHandoff with RLOS(failed)">
     <classes>
-      <class name="TestCases.IndividualLead">
+      <class name="TestCases.AssetChanges">
         <methods>
-          <include name="closeBrowser"/>
-          <include name="logOutwithCSE"/>
-          <include name="coapplicantLeadHandoff"/>
-          <include name="launchBrowser"/>
           <include name="moveLeadToDocCollected"/>
-          <include name="loginwithbranch"/>
-          <include name="createApplicantLeadOnNewStage"/>
-          <include name="childRLOSProcess"/>
+          <include name="launchBrowser"/>
         </methods>
-      </class> <!-- TestCases.IndividualLead -->
+      </class> <!-- TestCases.AssetChanges -->
     </classes>
   </test> <!-- RLOS LeadHandoff with RLOS(failed) -->
 </suite> <!-- Failed suite [SanitySuie] -->

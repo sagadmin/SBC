@@ -25,10 +25,10 @@ public class Connectivity implements Properties {
 
 	}
 	
-	@AfterSuite
-	public void closeBrowser(){
-		
-		driver.close();
-	}
+//	@AfterSuite
+//	public void closeBrowser(){
+//		
+//		driver.close();
+//	}
 
 }

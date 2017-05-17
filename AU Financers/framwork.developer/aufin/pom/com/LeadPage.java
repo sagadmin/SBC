@@ -48,8 +48,11 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex5_79")
 	public static WebElement drop_entity;
 	
-	@FindBy(xpath="//div[3]/div/div/div/ul/li/div/input")
+	@FindBy(xpath="//div[3]/div/div/div/ul/li/div/input")  
 	public static WebElement childAttachedPhoto;
+	
+	@FindBy(xpath="//div[10]/div/div/div/ul/li/a/i")
+	public static WebElement childattachedphot;
 	
 	@FindBy(xpath="//div[3]/div/div/div/ul/li[2]/a/i")
 	public static WebElement childAttachedUpload;
@@ -300,6 +303,10 @@ public class LeadPage extends LoginPage{
 	
 	@FindBy(xpath="//div[3]/div/ul/li[2]/a/span")
 	public static WebElement btn_SaveProcessed;
+	
+	
+	//div[3]/div/div/div/ul/li/a/i
+	
 	
 	@FindBy(xpath="//div[3]/div/div/div/ul/li/div/input")
 	public static WebElement photoidUploadedfile;

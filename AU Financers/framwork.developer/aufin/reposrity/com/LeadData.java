@@ -5,13 +5,13 @@ import aufin.common.com.aufinscript;
 
 public interface LeadData extends Properties{
 	
-	String cseusername ="cseasset";
+	String cseusername ="cse";
 	String csepassword ="acid_qa";
 	String bmusername ="117049";
 	String bmpassword ="acid_qa";
 	String entity ="INDIVIDUAL - FULL KYC";
-	String product = aufinscript.getProduct();
-	String mobile_number =data.getMobileNumber();
+	String product =aufinscript.getProduct();
+	String mobile_number =data.randomMobileNumber(10);
 	String salutration ="MR.";
 	String Fname =data.randomAlphaNumeric(5);
 	String MName =data.randomAlphaNumeric(5);
@@ -22,7 +22,7 @@ public interface LeadData extends Properties{
 	String Year ="1968";
 	String aadhar =data.randomaadharnumber(16);
 	String Gender ="Male";
-	String CurrentAddress ="Banglore";
+	String CurrentAddress ="Banglore"; 
 	String fullName = Fname+MName+LName;
 	String LoanAmount ="500";
 	String CustomerPhoto ="C:\\Users\\Ishant Kushwaha\\Desktop\\images.png";
@@ -37,7 +37,7 @@ public interface LeadData extends Properties{
 	String CoapplicantMname =data.randomAlphaNumeric(6);
 	String CoapplicantLname =data.randomAlphaNumeric(5);
 	String CoapplicantShortName=data.randomAlphaNumeric(3);
-	String CoappliantMobileNo=data.getMobileNumber();
+	String CoappliantMobileNo=data.randomMobileNumber(10);
 	
 	//////////////////////////////////////////////////////////////////////////////////////
 	
@@ -47,7 +47,7 @@ public interface LeadData extends Properties{
 	String co_mname=data.randomAlphaNumeric(2);
 	String co_Lname=data.randomAlphaNumeric(3);
 	String co_ShortName=data.randomAlphaNumeric(3);
-	String co_MobileNo=data.getMobileNumber();
+	String co_MobileNo=data.randomMobileNumber(10);
 	
 	///////////////////////////////////////////////////////////////////////////////////////
 	
