@@ -5,11 +5,10 @@
     <classes>
       <class name="TestCases.IndividualLead">
         <methods>
-          <include name="closeBrowser"/>
+          <include name="CLOSPRocessforparent"/>
           <include name="takeactionByBM"/>
           <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
-          <include name="FillCOApplicantLayout"/>
           <include name="moveLeadToDocCollected"/>
           <include name="childRLOSProcess"/>
         </methods>

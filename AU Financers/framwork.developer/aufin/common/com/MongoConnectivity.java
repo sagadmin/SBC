@@ -25,6 +25,7 @@ public class MongoConnectivity {
 		BasicDBObject document = new BasicDBObject();
 		document.put("CUSTOMER TYPE", "INDIVIDUAL");
 		
+		
 	}
 	
 	

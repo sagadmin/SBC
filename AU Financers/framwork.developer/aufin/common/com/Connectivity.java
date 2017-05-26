@@ -17,6 +17,7 @@ public class Connectivity implements Properties {
 	public void launchBrowser() {
 		System.setProperty(chromeDriver, chromepaths);
 		driver = new ChromeDriver();
+		driver.manage().deleteAllCookies();
 		System.out.println(webSiteURL);
 		driver.get(webSiteURL);
 		driver.manage().window().maximize();
@@ -25,10 +26,10 @@ public class Connectivity implements Properties {
 
 	}
 	
-//	@AfterSuite
-//	public void closeBrowser(){
-//		
-//		driver.close();
-//	}
+	@AfterSuite
+	public void closeBrowser(){
+		
+		driver.close();
+	}
 
 }

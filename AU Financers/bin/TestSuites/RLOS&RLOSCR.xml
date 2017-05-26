@@ -8,6 +8,8 @@
 <include name="NavigatetoLead"></include>
 <include name="createApplicantLeadOnNewStage"></include>
 <include name="moveLeadToDocCollected"></include>
+<include name="childRLOSProcess"></include>
+<include name="coapplicantLeadHandoff"></include>
 </methods>
 </class>
 </classes>

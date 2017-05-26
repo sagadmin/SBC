@@ -27,6 +27,7 @@ public interface LeadData extends Properties{
 	String LoanAmount ="500";
 	String CustomerPhoto ="C:\\Users\\Ishant Kushwaha\\Desktop\\images.png";
 	String CustomerSignature="C:\\Users\\Ishant Kushwaha\\Desktop\\images.png";
+	String filename = data.randomAlphaNumeric(2);
 	
 	
 	

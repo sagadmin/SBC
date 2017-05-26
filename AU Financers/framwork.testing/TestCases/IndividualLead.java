@@ -248,7 +248,8 @@ public class IndividualLead extends LeadMethods {
 		common.ImplicityWait(20);
 
 		Log.info("Fill PhotoID Name");
-		fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga", "C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
+		fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga","C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
+		
 
 		common.ImplicityWait(20);
 		Log.info("Select permananet address");
@@ -303,7 +304,7 @@ public class IndividualLead extends LeadMethods {
 		Log.startTestCase("Logged in with Branch Manager");
 
 		Log.info("enter Branch Manager Username");
-		Enter_txtName("bm");
+		Enter_txtName(LeadOwner);
 
 		Log.info("Enter Branch Manager Password");
 		Enter_txtPassword("acid_qa");

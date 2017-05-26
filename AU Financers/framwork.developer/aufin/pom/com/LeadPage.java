@@ -246,7 +246,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(xpath="//a[@id='1636_pickPhoto']/i")
 	public static WebElement clk_photoidBrowse;
 	
-	@FindBy(xpath="//a[@id='1636']/i")
+	@FindBy(xpath="//a[@id='1636']/i")//a[@id='1636']/i
 	public static WebElement clk_photoidUpload;
 	
 	@FindBy(id="1635_pickPhoto")
@@ -255,6 +255,8 @@ public class LeadPage extends LoginPage{
 	@FindBy(xpath="//a[@id='1635']/i")
 	public static WebElement addresprf_upload;
 	
+	@FindBy(id="0_thumb")
+	public static WebElement photRemove;
 	@FindBy(id="Lea_ex2_5")
 	public static WebElement txt_currentaddresspincde;
 	
@@ -265,7 +267,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex1_73")
 	public static WebElement txt_currentAddressLine1;
 	
-	@FindBy(id="Lea_ex5_44")
+	@FindBy(id="//a[@id='ui-id-152']")
 	public static WebElement chkbox_permanantAddress;
 	
 	@FindBy(id="Lea_ex5_74")
@@ -277,7 +279,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex5_60")
 	public static WebElement txt_permantpincode;
 	
-	@FindBy(id="ui-id-31")
+	@FindBy(id="ui-id-28")
 	public static WebElement drpdwn_permananetAddressPin;
 	
 	@FindBy(id="Lea_ex2_6imgpick")
@@ -312,6 +314,13 @@ public class LeadPage extends LoginPage{
 	public static WebElement photoidUploadedfile;
 	
 	
+	@FindBy(xpath="//div[19]/div/div/div/label")
+	public static WebElement chk_permanantaddress;
+	
+	@FindBy(xpath="//div[3]/div/div/div/ul/li[4]/a/i")
+	public static WebElement rmv_UploadedPhoto;
+	
+	
 	
 /***********************************************************************
  * 
@@ -339,7 +348,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex6_26")
 	public static WebElement txt_CompanySubIndustry;
 	
-	@FindBy(id="ui-id-30")
+	@FindBy(id="ui-id-29")
 	public static WebElement list_subIndustryType;
 	
 	@FindBy(id="ui-id-30")
@@ -348,7 +357,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex6_25")
 	public static WebElement txt_CompanyIndustry;
 	
-	@FindBy(id="ui-id-28")
+	@FindBy(id="ui-id-27")
 	public static WebElement list_IndustryType;
 	
 	@FindBy(id="Lea_ex5_99")

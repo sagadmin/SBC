@@ -1,6 +1,5 @@
 package aufin.common.com;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,9 +9,6 @@ import javax.swing.border.EmptyBorder;
 import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
 import org.testng.collections.Lists;
-
-import aufin.reposrity.com.LeadData;
-import aufin.reposrity.com.Properties;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -39,11 +35,13 @@ public class aufinscript extends JFrame {
 	TestNG tng = new TestNG();
 	List<String> suites = Lists.newArrayList();
 
-	private JPanel contentPane;
+
 	private static JComboBox pro1;
 	private static JComboBox env;
 	public static JCheckBox ck6 ;
 	public static JCheckBox ck7;
+	public static JCheckBox ck1;
+
 
 	/**
 	 * Launch the application.
@@ -69,7 +67,8 @@ public class aufinscript extends JFrame {
 		setBackground(new Color(47, 79, 79));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 891, 494);
-		contentPane = new JPanel();
+		
+		JPanel 	contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -107,7 +106,7 @@ public class aufinscript extends JFrame {
 		lblSelectScript.setForeground(new Color(240, 255, 255));
 		lblSelectScript.setFont(new Font("Tahoma", Font.BOLD, 12));
 
-		JCheckBox ck1 = new JCheckBox("ALL");
+		ck1 = new JCheckBox("ALL");
 		ck1.setBackground(new Color(0, 128, 128));
 		ck1.setForeground(new Color(240, 255, 240));
 		ck1.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -174,6 +173,7 @@ public class aufinscript extends JFrame {
 								tng.run();
 							} else {
 								if (ck1.isSelected()) {
+									
 									suites.add(
 											"D:\\SAGITHUB\\AU Financers\\framwork.testing\\TestSuites\\CLOS&RLOS.xml");
 									suites.add(
@@ -327,6 +327,7 @@ public class aufinscript extends JFrame {
 							.addContainerGap())
 						.addComponent(lblNewLabel_3)))
 		);
+		
 		contentPane.setLayout(gl_contentPane);
 	}
 
@@ -413,4 +414,7 @@ public class aufinscript extends JFrame {
 		return null;
 
 	}
+	
+	
+	
 }

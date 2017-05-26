@@ -9,11 +9,16 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods extends Connectivity {
@@ -25,6 +30,14 @@ public class CommonMethods extends Connectivity {
 	public void ExplicityWait(int time) {
 
 		WebDriverWait wait = new WebDriverWait(driver, time);
+		
+
+	}
+	
+	public void ExplicityWaittillElement(int time,WebElement element,String text) {
+
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 
 	}
 
@@ -86,6 +99,26 @@ public class CommonMethods extends Connectivity {
 		String output = sb.toString();
 		System.out.println(output);
 		return Name;
+	}
+	
+	public void flurentWait(int waittill,int upto){
+
+ 
+	Wait wait = new FluentWait(driver)
+ 
+    .withTimeout(waittill, TimeUnit.SECONDS)
+ 
+    .pollingEvery(upto, TimeUnit.SECONDS)
+ 
+    .ignoring(NoSuchElementException.class);
+ 
+
+	}
+	
+	
+	public void getAlertActionm(){
+		
+		
 	}
 	
 	

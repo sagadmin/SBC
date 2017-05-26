@@ -1,15 +1,19 @@
 package aufin.appmethods.com;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.text.Document;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import aufin.common.com.aufinscript;
 import aufin.pom.com.LeadPage;
@@ -17,6 +21,8 @@ import aufin.reposrity.com.LeadData;
 import aufin.reposrity.com.Properties;
 
 public abstract class LeadMethods extends LoginMethod {
+	
+	
 
 	public void navigate_to_asset() {
 
@@ -228,14 +234,15 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.clk_switchBtn.click();
 	}
 
-	public void selectCoapplicantLayout() throws InterruptedException {
+	public void selectCoapplicantLayout() {
 		common.ImplicityWait(20);
 		LeadPage.clk_switchBtn.click();
 		driver.findElement(By.cssSelector("p[title=\"Co- applicant / Guarantor Details\"]")).click();
 		LeadPage.clk_newCoapplicant.click();
+		
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
-		// LeadPage.clk_newCoapplicant.click();
+		LeadPage.clk_newCoapplicant.click();
 	}
 
 	public void navigateToLeadHomeScreen() {
@@ -283,25 +290,44 @@ public abstract class LeadMethods extends LoginMethod {
 
 	public void selectPermanenetPincode(String pinode) {
 		LeadPage.txt_permantpincode.sendKeys(pinode);
-		LeadPage.drpdwn_permananetAddressPin.click();
+		driver.findElement(By.linkText(pinode)).click();
+		//LeadPage.drpdwn_permananetAddressPin.click();
 	}
 
 	public void selectcurrentPincode(String pinode) {
 		LeadPage.txt_currentaddresspincde.sendKeys(pinode);
-		LeadPage.list_currentPincode.click();
+		driver.findElement(By.linkText(pinode)).click();
+	//	LeadPage.list_currentPincode.click();
+	}
+	
+	public void checkPermananetAddress(){
+		
+		LeadPage.chk_permanantaddress.click();
 	}
 
-	public void fillPhotoIdKYCDetails(String photoIdtype, String DocNumber, String DocumenName, String path) {
+	public void fillPhotoIdKYCDetails(String photoIdtype, String DocNumber, String DocumenName) {
 		selectPhotoIdProof("Yes");
 		selectPhotoIdProofType(photoIdtype);
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
 		LeadPage.txt_photoidprfName.sendKeys(DocumenName);
-		common.ImplicityWait(60);
-		LeadPage.photoidUploadedfile.sendKeys(path);
-		common.ImplicityWait(60);
-		LeadPage.clk_photoidUpload.click();
+		
+		
 
 	}
+	
+	public void uploadPhotoIdProof(String path) {
+		LeadPage.photoidUploadedfile.sendKeys(path);
+		
+		common.ImplicityWait(50);
+		
+		LeadPage.clk_photoidUpload.click();
+	
+		
+		
+		
+	}
+	
+	
 
 	public void selectRiskClassification(int index) {
 		new Select(LeadPage.drpdwn_RiskClasification).selectByIndex(2);
@@ -354,8 +380,8 @@ public abstract class LeadMethods extends LoginMethod {
 			} else {
 				if (action.equalsIgnoreCase("CSE Rework")) {
 					LeadPage.link_cseRework.click();
-				}else{
-					if(action.equalsIgnoreCase("Duplicate Lead Confirmation")){
+				} else {
+					if (action.equalsIgnoreCase("Duplicate Lead Confirmation")) {
 						LeadPage.link_ApprovedDuplicate.click();
 					}
 				}
@@ -590,7 +616,7 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void handoffchildswitch() throws InterruptedException {
-		
-	new Actions(driver).moveToElement(LeadPage.clcik_childleadtitle).click().perform();
+
+		new Actions(driver).moveToElement(LeadPage.clcik_childleadtitle).click().perform();
 	}
 }
