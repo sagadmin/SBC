@@ -357,7 +357,7 @@ public class LeadPage extends LoginPage{
 	@FindBy(id="Lea_ex6_25")
 	public static WebElement txt_CompanyIndustry;
 	
-	@FindBy(id="ui-id-27")
+	@FindBy(linkText="Food products")
 	public static WebElement list_IndustryType;
 	
 	@FindBy(id="Lea_ex5_99")
@@ -439,13 +439,13 @@ public class LeadPage extends LoginPage{
 	@FindBy(xpath="//a[@id='btnSave102202']/span")
 	public static WebElement btn_corporateSave;
 	
-	@FindBy(id="ui-id-29")
+	@FindBy(xpath="//*[@id='ui-id-28']")
 	public static WebElement list_CompanyIndustry;
 	
-	@FindBy(id="ui-id-29")
+	@FindBy(id="ui-id-31")
 	public static WebElement list_cropCompanyPin;
 	
-	@FindBy(id="ui-id-32")
+	@FindBy(id="ui-id-41")
 	public static WebElement list_CompanyPincode;
 	
 	@FindBy(id="StatusCodeID")

@@ -21,8 +21,6 @@ import aufin.reposrity.com.LeadData;
 import aufin.reposrity.com.Properties;
 
 public abstract class LeadMethods extends LoginMethod {
-	
-	
 
 	public void navigate_to_asset() {
 
@@ -239,7 +237,7 @@ public abstract class LeadMethods extends LoginMethod {
 		LeadPage.clk_switchBtn.click();
 		driver.findElement(By.cssSelector("p[title=\"Co- applicant / Guarantor Details\"]")).click();
 		LeadPage.clk_newCoapplicant.click();
-		
+		common.ImplicityWait(40);
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
 		LeadPage.clk_newCoapplicant.sendKeys(Keys.ENTER);
 		LeadPage.clk_newCoapplicant.click();
@@ -291,17 +289,17 @@ public abstract class LeadMethods extends LoginMethod {
 	public void selectPermanenetPincode(String pinode) {
 		LeadPage.txt_permantpincode.sendKeys(pinode);
 		driver.findElement(By.linkText(pinode)).click();
-		//LeadPage.drpdwn_permananetAddressPin.click();
+		// LeadPage.drpdwn_permananetAddressPin.click();
 	}
 
 	public void selectcurrentPincode(String pinode) {
 		LeadPage.txt_currentaddresspincde.sendKeys(pinode);
 		driver.findElement(By.linkText(pinode)).click();
-	//	LeadPage.list_currentPincode.click();
+		// LeadPage.list_currentPincode.click();
 	}
-	
-	public void checkPermananetAddress(){
-		
+
+	public void checkPermananetAddress() {
+
 		LeadPage.chk_permanantaddress.click();
 	}
 
@@ -310,24 +308,27 @@ public abstract class LeadMethods extends LoginMethod {
 		selectPhotoIdProofType(photoIdtype);
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
 		LeadPage.txt_photoidprfName.sendKeys(DocumenName);
-		
-		
 
 	}
-	
-	public void uploadPhotoIdProof(String path) {
+
+	public void uploadPhotoIdProof(String path) throws InterruptedException {
+
 		LeadPage.photoidUploadedfile.sendKeys(path);
-		
-		common.ImplicityWait(50);
-		
+
 		LeadPage.clk_photoidUpload.click();
-	
-		
-		
-		
+
 	}
-	
-	
+
+	public void closeAttachedclosebutton() {
+
+		driver.findElement(By.cssSelector("span.ui-icon.ui-icon-closethick")).click();
+
+		common.downscroll();
+
+		driver.findElement(By.xpath("//a[@id='1636_deleteFile']/i")).click();
+
+		common.ExplicityWait(40);
+	}
 
 	public void selectRiskClassification(int index) {
 		new Select(LeadPage.drpdwn_RiskClasification).selectByIndex(2);
@@ -340,7 +341,7 @@ public abstract class LeadMethods extends LoginMethod {
 
 	public void selectSubIndus(String subind) {
 		LeadPage.txt_CompanySubIndustry.sendKeys(subind);
-		LeadPage.list_subIndustryType.click();
+		driver.findElement(By.linkText("FISH")).click();
 	}
 
 	public void selectCompanySubIndus(String subind) {
@@ -545,7 +546,7 @@ public abstract class LeadMethods extends LoginMethod {
 
 	public void selectComapnyPincode(String pinode) {
 		LeadPage.txt_companyPincode.sendKeys(pinode);
-		LeadPage.list_cropCompanyPin.click();
+		driver.findElement(By.linkText(pinode)).click();
 	}
 
 	public void selectCompanyIndutryd(String ind) {
@@ -560,7 +561,7 @@ public abstract class LeadMethods extends LoginMethod {
 
 	public void CompanyselectComapnyPincode(String pinode) {
 		LeadPage.txt_companyPincode.sendKeys(pinode);
-		LeadPage.list_CompanyPincode.click();
+		driver.findElement(By.linkText(pinode)).click();
 	}
 
 	public void CompanyKYC1Atatchement(String path) {
@@ -585,12 +586,12 @@ public abstract class LeadMethods extends LoginMethod {
 	}
 
 	public void childfillPhotoIdKYCDetailsonchild(String photoIdtype, String DocNumber, String DocumenName, String path)
-			throws InterruptedException {
+			 {
 		selectPhotoIdProof("Yes");
 		selectPhotoIdProofType(photoIdtype);
 		LeadPage.txt_photoidDocNo.sendKeys(DocNumber);
 		// LeadPage.txt_photoidprfName.sendKeys(DocumenName);
-		Thread.sleep(2000);
+		
 		LeadPage.childAttachedPhoto.sendKeys(path);
 		common.ImplicityWait(20);
 		LeadPage.childAttachedUpload.click();
@@ -599,7 +600,8 @@ public abstract class LeadMethods extends LoginMethod {
 
 	public void CompanyselectIndutryd(String ind) {
 		LeadPage.txt_CompanyIndustry.sendKeys(ind);
-		LeadPage.list_CompanyIndustry.click();
+	//	LeadPage.list_CompanyIndustry.click();
+		driver.findElement(By.linkText("Food products")).click();
 
 	}
 

@@ -3,15 +3,11 @@
 <suite name="SanityforClos">
 <test name="CLOS LeadHandoff with CLOS">
 <classes>
-<class name="TestCases.IndividualLead">
+<class name="TestCases.AssetChanges">
 <methods>
 <include name="NavigatetoLead"></include>
 <include name="CLOSPRocessforparent"></include>
 <include name ="childRLOSProcess"></include>
-<include name="logOutwithCSE"></include>
-<include name="loginwithbranch"></include>
-<include name="takeactionByBM"></include>
-<include name ="coapplicantLeadHandoff"></include>
 </methods>
 </class>
 </classes>

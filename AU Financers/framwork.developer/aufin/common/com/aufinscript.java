@@ -96,11 +96,7 @@ public class aufinscript extends JFrame {
 		pro1 = new JComboBox();
 		pro1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		pro1.setForeground(new Color(0, 0, 255));
-		pro1.setModel(new DefaultComboBoxModel(new String[] { "Auto Loan (Refinance)", "CV Passenger (Used)",
-				"CV Passenger (Refinance)", "CV Loading (New)", "CV Loading (Used)", "CV Loading (Refinance)",
-				"Auto Loan (New)", "Auto Loan (Used)", "Auto Loan (Refinance)", "Car Taxi (New)", "Car Taxi (Used)",
-				"Car Taxi (Refinance)", "Two Wheeler (New)", "Two Wheeler (Used)", "Construction Equipment (New)",
-				"Construction Equipment (Used)", "Tractor (New)" }));
+		pro1.setModel(new DefaultComboBoxModel(new String[] {"Tractor (Refinance)", "Tractor (Used)", "Tractor (New)", "Construction Equipment (Refinance)", "Construction Equipment (Used)", "Construction Equipment (New)", "Two Wheeler (Refinance)", "Two Wheeler (New)", "Car Taxi (Refinance-Commercial Usage Car/MUV/SUV)", "Car Taxi (New - Commercial Usage Car/MUV/SUV)", "Auto Loan (Refinance-Personal Usage Car/MUV/SUV)"}));
 
 		JLabel lblSelectScript = new JLabel("SELECT SCRIPT");
 		lblSelectScript.setForeground(new Color(240, 255, 255));
@@ -340,7 +336,7 @@ public class aufinscript extends JFrame {
 	public static String getURL() {
 		String SIT = "http://10.57.15.4/sn/app/login/login";
 		String UAT = "http://10.57.18.12/sn/app/login/login";
-		String devPort = "http://aufin.crmnext.com/sn/app/login/login";
+		String devPort = "http://aufinqa/sn/app/login/login";
 		String SA ="http://aufinsa/sn/app/login/login";
 		if (env.getSelectedItem().equals("AUFIN SIT")) {
 			return SIT;
@@ -366,7 +362,7 @@ public class aufinscript extends JFrame {
 	public static String getAssertURL() {
 		String SIT = "http://10.57.15.4/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
 		String UAT = "http://10.57.18.12/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
-		String devPort = "http://aufin.crmnext.com/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
+		String devPort = "http://aufinqa/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
 		String SA ="http://aufinsa/sn/app/AutoFlow/RunFlow?x=m7psnshf4ta9h2w6nn864pxdgzugpu8vd7aex6j94r36ftdyvkv9zyr2v9g52dw3&layid=T3b7fAU4O020z5B%2F4hHhAA%3D%3D&pid=zN93gbEB5guESYxo8mBJTQ%3D%3D&cogtype=false";
 		if (env.getSelectedItem().equals("AUFIN SIT")) {
 			return SIT;
@@ -392,7 +388,7 @@ public class aufinscript extends JFrame {
 	public static String getHomeScreen() {
 		String SIT = "http://10.57.15.4/sn/app/CRMNextObject/Home/Lead";
 		String UAT = "http://10.57.18.12/sn/app/CRMNextObject/Home/Lead";
-		String devPort = "http://aufin.crmnext.com/sn/app/CRMNextObject/Home/Lead";
+		String devPort = "http://aufinqa/sn/app/CRMNextObject/Home/Lead";
 		String SA ="http://aufinsa/sn/app/CRMNextObject/Home/Lead";
 		if (env.getSelectedItem().equals("AUFIN SIT")) {
 			return SIT;

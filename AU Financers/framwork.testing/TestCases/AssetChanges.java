@@ -23,6 +23,7 @@ public class AssetChanges extends LeadMethods {
 	String dupeMname;
 	String dupeLname;
 	String dupeAddhar;
+	String url;
 
 	@Test(priority = 0)
 	public void NavigatetoLead() {
@@ -47,15 +48,14 @@ public class AssetChanges extends LeadMethods {
 
 			Log.info("POT taken for success logged in");
 			common.TakeScreenshots();
+			
 
 			Log.endTestCase("----TESTCASE ENDED HERE-----");
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			Assert.assertThrows(null);
-			System.out.println(e.getMessage());
 		}
-
 	}
 
 	/**************************************************************
@@ -123,23 +123,14 @@ public class AssetChanges extends LeadMethods {
 			enter_AadharCard(LeadData.aadhar);
 			dupeAddhar = LeadData.aadhar;
 
-			Log.info("Select Form Type");
-			select_form60("Form60");
+//			Log.info("Select Form Type");
+//			select_form60("Form60");
 
 			Log.info("Select Gender Type");
 			selectGender(LeadData.Gender);
-
-			Log.info("Select Residance Type");
-			selectResidance(1);
-
-			common.ImplicityWait(40);
-			Log.info("Fill PhotoID Name");
-			fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga");
-	
 			
-			uploadPhotoIdProof("C:\\Users\\Ishant Kushwaha\\Desktop\\POT 22\\ik010.jpg");
+			common.downscroll();
 			
-
 			Log.info("Enter Current Address Details");
 			enterCurrentAddressLine1(LeadData.CurrentAddress);
 
@@ -150,44 +141,9 @@ public class AssetChanges extends LeadMethods {
 
 			Log.info("Click Save&Processd");
 			clickSaveProcessedButton();
-
-			// if(aufinscript.ck6.isSelected()==true){
-			// common.ImplicityWait(30);
-			// LeadtoLeadDedupe();
-			//
-			// logOutwithCSE();
-			// loginwithbranch();
-			// DOMConfigurator.configure("log.xml");
-			// Log.startTestCase("Logged in with Branch Manager");
-			//
-			// common.ImplicityWait(20);
-			//
-			// driver.navigate().refresh();
-			// Log.info("Select lead view");
-			// selectcustommodule("Asset ");
-			// selectLeadCustomview("Duplicate Lead Confirmation *");
-			// Log.info("Click and open lead");
-			// leadDetailsingrid();
-			//
-			// Log.info("Click On Edit button");
-			// clickEditButton();
-			//
-			// common.ImplicityWait(10);
-			//
-			// Log.info("Approved Duplicate");
-			// actionsonBM("Duplicate Lead Confirmation");
-			//
-			// Log.info("Click Save Button");
-			// clickSaveProcessedButton();
-			//
-			// Log.info("Logged out from System");
-			// click_LoginOutButton();
-			//
-			// NavigatetoLead();
-			//
-			//
-			// }
-			Log.endTestCase("-----TESTCASE ENDED HERE---------");
+			
+		
+		Log.endTestCase("-----TESTCASE ENDED HERE---------");
 		} catch (Exception e) {
 			// TODO: handle exception
 
@@ -207,7 +163,7 @@ public class AssetChanges extends LeadMethods {
 	 * 
 	 ***********************************************************/
 
-	@Test(priority = 2)
+	@Test(priority = 2,groups="A",enabled=true)
 	public void moveLeadToDocCollected() throws InterruptedException {
 
 		try {
@@ -233,38 +189,22 @@ public class AssetChanges extends LeadMethods {
 			Log.info("Click and open lead");
 			leadDetailsingrid();
 
-			common.ImplicityWait(30);
-
 			Log.info("Click On Edit button");
 			clickEditButton();
 
 			Log.info("click on Doc collected stage");
 			click_docCollectedStage();
 
-			Log.info("Select RiskClassification");
-			selectRiskClassification(2);
-
 			Log.info("Enter Loan Amount");
 			enterLoanAmount(LeadData.LoanAmount);
 			
-			
-			
-
 			common.downscroll();
 
-			Log.info("Select Industry");
-			selectIndutryd("Food");
-
-			Log.info("Select SubInd");
-			selectSubIndus("FISH");
-
-			Log.info("Upload Customer Photo");
-			uploadCustomerPhoto(LeadData.CustomerPhoto);
-
-			Log.info("Upload Customer Signature");
-			uploadCustomerSign(LeadData.CustomerSignature);
-			
-		//	uploadPhotoIdProof("C:\\Users\\Ishant Kushwaha\\Desktop\\POT 22\\ik010.jpg");
+//			Log.info("Select Industry");
+//			selectIndutryd("Food");
+//
+//			Log.info("Select SubInd");
+//			selectSubIndus("FISH");
 
 			common.downscroll();
 
@@ -273,35 +213,37 @@ public class AssetChanges extends LeadMethods {
 
 			selectPermanenetPincode("201005");
 
-			common.ImplicityWait(40);
 			Log.info("Click Save Button");
 			clickSaveProcessedButton();
-
-			// closeLeadHandoffscreen();
+			
+			 url = driver.getCurrentUrl();
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 
-	@Test(priority = 3)
-	public void childRLOSProcess() throws InterruptedException {
-
-		try {
+	@Test(priority=3)
+	public void childRLOSProcess(){
+			
+			
 			DOMConfigurator.configure("log.xml");
 			Log.startTestCase("Craete an RLOS Process for Child");
+			
+			driver.navigate().to(url);
 
-			common.ImplicityWait(20);
+	
 			Log.info("Select Co-applicantLayout");
 			selectCoapplicantLayout();
 
-			// common.ImplicityWait(20);
+			common.ImplicityWait(10);
 
-			Log.info("Select Entity Type");
-			select_Entity(LeadData.entity);
-
+		
 			Log.info("Enter Mobile Number");
 			enter_MobileNo(LeadData.mobile_number);
+			
+			Log.info("Select Entity Type");
+			select_Entity(LeadData.entity);
 
 			Log.info("Select Salution");
 			Select_Salution(LeadData.salutration);
@@ -326,14 +268,11 @@ public class AssetChanges extends LeadMethods {
 			Log.info("Enter AadharCard No");
 			enter_AadharCard(LeadData.aadhar);
 
-			Log.info("Select Form Type");
-			select_form60("Form60");
+//			Log.info("Select Form Type");
+//			select_form60("Form60");
 
 			Log.info("Select Gender Type");
 			selectGender(LeadData.Gender);
-
-			Log.info("Select Residance Type");
-			selectResidance(1);
 
 			Log.info("Enter Current Address Details");
 			enterCurrentAddressLine1(LeadData.CurrentAddress);
@@ -343,20 +282,6 @@ public class AssetChanges extends LeadMethods {
 
 			common.downscroll();
 
-			Log.info("Upload Customer Photo");
-			uploadCustomerPhoto(LeadData.CustomerPhoto);
-
-			Log.info("Upload Customer Signature");
-			uploadCustomerSign(LeadData.CustomerSignature);
-
-			common.ImplicityWait(20);
-			common.ExplicityWait(50);
-			Log.info("Fill PhotoID Name");
-			childfillPhotoIdKYCDetailsonchild("Aadhar Card", "Aadhar123", "Aadga",
-					"C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-			// fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga",
-			// "C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-
 			common.ImplicityWait(20);
 			Log.info("Select permananet address");
 			enterPermananetAddressLine1("Permanant");
@@ -365,13 +290,10 @@ public class AssetChanges extends LeadMethods {
 
 			Log.info("Click Save Button");
 			corporateSaveBtn();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
+		
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1)
 	public void CLOSPRocessforparent() {
 
 		try {
@@ -414,53 +336,8 @@ public class AssetChanges extends LeadMethods {
 			Log.info("enter Mobile Number");
 			enter_MobileNo(LeadData.CoappliantMobileNo);
 
-			Log.info("Select Industry");
-			CompanyselectIndutryd("Food");
-
-			Log.info("Select SubInd");
-			selectSubIndus("FISH");
-
-			Log.info("select Corporate KYC1");
-			selectcmpnykyc1doc();
-			selectcmyKYC1Issuedate("10", "2015", "Jan");
-
-			Log.info("Document Name");
-			enterCompanyKYC1DOCNAME("TEST");
-
-			Log.info("Enter KYC Doc1 Number");
-			entercmpnyKYC1DocNo("1569");
-
-			Log.info("Select RiskClassification");
-			selectRiskClassification(2);
-
 			Log.info("Enter Loan Amount");
 			enterLoanAmount(LeadData.LoanAmount);
-
-			common.downscroll();
-
-			Log.info("Upload KYC1 Attachement");
-			CompanyKYC1Atatchement("C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-
-			// Log.info("Insert KYC 1 Expire Date");
-			// selectcmyKYC1Expiredate("20", "2018", "Mar");
-
-			Log.info("Select Corporate KYC2");
-			selectKYC2DocType();
-
-			Log.info("Select KYC 2 DocumentName");
-			entercmpyKYC2DocumentName("dfg");
-
-			Log.info("Enter KYC2 Doc Number");
-			entercmpnyKYC2DocNo("4545");
-
-			Log.info("Upload KYC 2 Doc");
-			CompanyKYC2Atatchement("C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
-
-			// Log.info("Select KYC Issue Date");
-			// selectcmyKYC2Issuedate("20", "2018", "Jun");
-
-			// Log.info("Select KYC2 Expire Date");
-			// selectcmyKYC2Expiredate("23","2020", "Jan");
 
 			common.downscroll();
 
@@ -468,7 +345,7 @@ public class AssetChanges extends LeadMethods {
 			entercorpCurrentAddress("dfg");
 
 			Log.info("Select Corporate Company Pin");
-			CompanyselectComapnyPincode("201005");
+			CompanyselectComapnyPincode("207002");
 
 			Log.info("Enter Company Name/Entity Name");
 			enterCompanyNameEntityName("Sphonx");
@@ -508,5 +385,58 @@ public class AssetChanges extends LeadMethods {
 		}
 
 	}
+	
+	@Test(priority=3,groups="A")
+	public void FillCOApplicantLayout() {
+
+		DOMConfigurator.configure("log.xml");
+		Log.startTestCase("Craete an RLOS Process for Child");
+		
+		driver.navigate().to(url);
+
+
+		Log.info("Select Co-applicantLayout");
+		selectCoapplicantLayout();
+
+		Log.info("Select Entity");
+		select_Entity(LeadData.CoapplicantEntity);
+
+		Log.info("Select Salutraion");
+		Select_Salution("M/S.");
+
+		Log.info("Fill FirstName");
+		enter_FirstName(LeadData.CoapplicantFname);
+
+		Log.info("Enter Middle Name");
+		enter_MiddleName(LeadData.CoapplicantMname);
+
+		Log.info("Enter Last Name");
+		enter_LastName(LeadData.CoapplicantLname);
+
+		Log.info("Enter Short Name");
+		enter_shortName(LeadData.CoapplicantShortName);
+
+		Log.info("enter Mobile Number");
+		enter_MobileNo(LeadData.CoappliantMobileNo);
+		
+		common.ImplicityWait(20);
+
+		Log.info("Enter Corporate Company Address");
+		entercorpCurrentAddress("dfg");
+
+		Log.info("Select Corporate Company Pin");
+		selectComapnyPincode("207002");
+
+		Log.info("Enter Company Name/Entity Name");
+		enterCompanyNameEntityName("Sphonx");
+
+		Log.info("Select DOI");
+		selectDOI("20", "May", "2015");
+
+		Log.info("Click Save Button");
+		corporateSaveBtn();
+
+	}
+
 
 }

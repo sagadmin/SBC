@@ -3,20 +3,12 @@
 <suite name="Sanity">
 <test name="RLOS LeadHandoff with CLOS">
 <classes>
-<class name="TestCases.IndividualLead">
+<class name="TestCases.AssetChanges">
 <methods>
 <include name="NavigatetoLead"></include>
 <include name="createApplicantLeadOnNewStage"></include>
 <include name="moveLeadToDocCollected"></include>
 <include name ="FillCOApplicantLayout"></include>
-<include name="logOutwithCSE"></include>
-<include name="loginwithbranch"></include>
-<include name="takeactionByBM"></include>
-<include name="coapplicantLeadHandoff"></include>
-<exclude name="childRLOSProcess"></exclude>
-<exclude name="LeadSearchHome"></exclude>
-<exclude name="LeadtoCustomerDedupe"></exclude>
-<exclude name="LeadtoLeadDedupe"></exclude>
 </methods>
 </class>
 </classes>

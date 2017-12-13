@@ -3,16 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestCases.IndividualLead">
+      <class name="TestCases.AssetChanges">
         <methods>
-          <include name="CLOSPRocessforparent"/>
-          <include name="takeactionByBM"/>
-          <include name="coapplicantLeadHandoff"/>
           <include name="launchBrowser"/>
-          <include name="moveLeadToDocCollected"/>
           <include name="childRLOSProcess"/>
+          <include name="FillCOApplicantLayout"/>
         </methods>
-      </class> <!-- TestCases.IndividualLead -->
+      </class> <!-- TestCases.AssetChanges -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

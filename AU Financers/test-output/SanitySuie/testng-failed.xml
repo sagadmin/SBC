@@ -5,12 +5,8 @@
     <classes>
       <class name="TestCases.AssetChanges">
         <methods>
-          <include name="coapplicantLeadHandoff"/>
-          <include name="createApplicantLeadOnNewStage"/>
-          <include name="moveLeadToDocCollected"/>
           <include name="launchBrowser"/>
           <include name="childRLOSProcess"/>
-          <include name="NavigatetoLead"/>
         </methods>
       </class> <!-- TestCases.AssetChanges -->
     </classes>

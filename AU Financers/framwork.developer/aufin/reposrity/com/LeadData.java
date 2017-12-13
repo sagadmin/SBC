@@ -10,10 +10,10 @@ public interface LeadData extends Properties{
 	String bmusername ="117049";
 	String bmpassword ="acid_qa";
 	String entity ="INDIVIDUAL - FULL KYC";
-	String product =aufinscript.getProduct();
-	String mobile_number =data.randomMobileNumber(10);
+	String product =  "Tractor (Used)";//aufinscript.getProduct();                                    
+	String mobile_number ="9856321589";//data.randomMobileNumber(10);
 	String salutration ="MR.";
-	String Fname =data.randomAlphaNumeric(5);
+	String Fname =  data.randomAlphaNumeric(5);
 	String MName =data.randomAlphaNumeric(5);
 	String LName =data.randomAlphaNumeric(5);
 	String ShortName =data.randomAlphaNumeric(3);
@@ -25,8 +25,8 @@ public interface LeadData extends Properties{
 	String CurrentAddress ="Banglore"; 
 	String fullName = Fname+MName+LName;
 	String LoanAmount ="500";
-	String CustomerPhoto ="C:\\Users\\Ishant Kushwaha\\Desktop\\images.png";
-	String CustomerSignature="C:\\Users\\Ishant Kushwaha\\Desktop\\images.png";
+	String CustomerPhoto ="C:\\Users\\Ishant Kushwaha\\Desktop\\iko1.png";
+	String CustomerSignature="C:\\Users\\Ishant Kushwaha\\Desktop\\iko1.png";
 	String filename = data.randomAlphaNumeric(2);
 	
 	

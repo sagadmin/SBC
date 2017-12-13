@@ -8,7 +8,7 @@ import aufin.common.com.aufinscript;
 import aufin.pom.com.LeadPage;
 import aufin.reposrity.com.LeadData;
 import aufin.utility.com.Log;
-
+import org.junit.*;
 public class IndividualLead extends LeadMethods {
 
 	String CustomerName;
@@ -248,7 +248,9 @@ public class IndividualLead extends LeadMethods {
 		common.ImplicityWait(20);
 
 		Log.info("Fill PhotoID Name");
-		fillPhotoIdKYCDetails("Aadhar Card", "Aadhar123", "Aadga","C:\\Users\\Ishant Kushwaha\\Desktop\\images.png");
+		fillPhotoIdKYCDetails("Voter ID", "voter", "Aadga");
+
+		uploadPhotoIdProof("C:\\Users\\Ishant Kushwaha\\Desktop\\iko8.png");
 		
 
 		common.ImplicityWait(20);

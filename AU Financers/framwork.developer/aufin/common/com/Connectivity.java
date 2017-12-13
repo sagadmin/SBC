@@ -1,5 +1,6 @@
 package aufin.common.com;
 
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
@@ -13,7 +14,7 @@ public class Connectivity implements Properties {
 
 	public static WebDriver driver = null;
 
-	@BeforeSuite
+	@Before
 	public void launchBrowser() {
 		System.setProperty(chromeDriver, chromepaths);
 		driver = new ChromeDriver();
@@ -26,10 +27,10 @@ public class Connectivity implements Properties {
 
 	}
 	
-	@AfterSuite
-	public void closeBrowser(){
-		
-		driver.close();
-	}
+//	@AfterSuite
+//	public void closeBrowser(){
+//		
+//		driver.close();
+//	}
 
 }
