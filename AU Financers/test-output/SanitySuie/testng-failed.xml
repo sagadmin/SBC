@@ -5,7 +5,6 @@
     <classes>
       <class name="TestCases.AssetChanges">
         <methods>
-          <include name="launchBrowser"/>
           <include name="childRLOSProcess"/>
         </methods>
       </class> <!-- TestCases.AssetChanges -->

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;aufin.utility.com&apos; to &apos;SBC/framework.Testing&apos;&#x0D;&#x0A;- Original project: &apos;AU Financers&apos;&#x0D;&#x0A;- Destination element: &apos;SBC/framework.Testing&apos;&#x0D;&#x0A;- Original element: &apos;AU Financers/framwork.testing/aufin.utility.com&apos;" description="Copy package" destination="=SBC/framework.Testing" element1="/framwork.testing&lt;aufin.utility.com" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1516350835013" version="1.0"/>
+</session>
