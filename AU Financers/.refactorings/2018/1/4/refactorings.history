@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CommonMethods.java&apos; to &apos;SBC/framework.development/sbc.comman.com&apos;&#x0D;&#x0A;- Original project: &apos;AU Financers&apos;&#x0D;&#x0A;- Destination element: &apos;SBC/framework.development/sbc.comman.com&apos;&#x0D;&#x0A;- Original element: &apos;aufin.common.com.CommonMethods.java&apos;" description="Copy compilation unit" destination="=SBC/framework.development&lt;sbc.comman.com" element1="/framwork.developer&lt;aufin.common.com{CommonMethods.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1516772718534" units="1" version="1.0"/>
+</session>
