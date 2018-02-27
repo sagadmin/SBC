@@ -1,14 +1,13 @@
-
-
+/****@Author by Rizwan-Dated-27-Feb-18***/
 package sbc.pom.com;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LeadPage extends LoginPage {
+public class CasePage extends LoginPage {
 
-	public LeadPage(WebDriver driver) {
+	public CasePage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
@@ -88,16 +87,4 @@ public class LeadPage extends LoginPage {
 	@FindBy(id="//div[@id='row0grid_23']")
 	public static WebElement click_searchLead;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-}
+	}
