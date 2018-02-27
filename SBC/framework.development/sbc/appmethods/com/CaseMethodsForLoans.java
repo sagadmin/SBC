@@ -9,7 +9,7 @@ import sbc.reposrity.com.Property;
 import sbc.pom.com.LeadPage;
 import sbc.reposrity.com.Property;
 
-public abstract class CaseMethods extends LoginMethods {
+public abstract class CaseMethodsForLoans extends LoginMethods {
 
 	public static void clkQuickAccess() {
 

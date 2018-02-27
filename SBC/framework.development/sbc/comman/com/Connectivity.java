@@ -23,6 +23,7 @@ public class Connectivity implements Property {
 		driver.manage().window().maximize();
 		new LoginPage(driver);
 		new LeadPage(driver);
+		new CasePageForLoans(driver);
 	}
 
 }
