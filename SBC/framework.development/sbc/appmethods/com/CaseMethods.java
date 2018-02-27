@@ -1,4 +1,4 @@
-//Created by Rizwan
+/****@Author by Rizwan-Dated-27-Feb-18***/
 package sbc.appmethods.com;
 
 import org.openqa.selenium.By;

@@ -89,15 +89,4 @@ public class LeadPage extends LoginPage {
 	public static WebElement click_searchLead;
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
